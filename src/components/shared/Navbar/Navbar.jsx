@@ -1,11 +1,13 @@
+import logo from "../../../assets/logo/favIcon.png";
+
 const Navbar = () => {
   return (
     <div>
       <div className="navbar bg-base-100">
         <div className="navbar-start">
-          <a className=" text-2xl font-2 font-black text-purple-950">
-            Volunteer<span className="text-purple-900">Sphere</span>
-          </a>
+          <div className="flex items-center">
+            <img className="w-12" src={logo} />
+          </div>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
