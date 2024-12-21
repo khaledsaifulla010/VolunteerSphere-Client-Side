@@ -20,7 +20,22 @@ const Navbar = () => {
             <NavLink to={"/allVolunteerNeedPosts"}>
               All Volunteer Need Posts
             </NavLink>
-            <NavLink to={"/myProfile"}>My Profile</NavLink>
+            <div className="dropdown dropdown-bottom dropdown-right dropdown-hover">
+              <div tabIndex={0} role="button" className=" m-1">
+                My Profile
+              </div>
+              <ul
+                tabIndex={0}
+                className="dropdown dropdown-content dropdown-hover menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow border"
+              >
+                <li>
+                  <a>Item 1</a>
+                </li>
+                <li>
+                  <a>Item 2</a>
+                </li>
+              </ul>
+            </div>
           </ul>
         </div>
         <div className="navbar-end">
