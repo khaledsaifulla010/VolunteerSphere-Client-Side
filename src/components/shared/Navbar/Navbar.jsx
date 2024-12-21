@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../../../assets/logo/favIcon.png";
 
 const Navbar = () => {
@@ -14,13 +14,10 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-            <li>
-              <a>Item 1</a>
-            </li>
-            <li>
-              <a>Item 3</a>
-            </li>
+          <ul className="menu menu-horizontal px-1 flex items-center gap-8">
+            <NavLink to={"/"}>Home</NavLink>
+            <NavLink to={"/"}>All Volunteer Need Posts</NavLink>
+            <NavLink to={"/"}>My Profile</NavLink>
           </ul>
         </div>
         <div className="navbar-end">
