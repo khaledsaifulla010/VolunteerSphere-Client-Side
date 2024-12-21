@@ -29,23 +29,44 @@ const Navbar = () => {
                 className="dropdown dropdown-content dropdown-hover menu bg-base-100 rounded-box z-[1] w-64 p-4 shadow border flex items-center text-base gap-y-4"
               >
                 <Link
-                  className="border p-2 rounded-xl text-blue-700 bg-blue-50 border-blue-200"
+                  className="border px-2 py-1 rounded-xl text-blue-700 bg-blue-50 border-blue-200 w-full"
                   to={"/addVolunteerNeedPost"}
                 >
-                  <a>Add Volunteer Need Post</a>
+                  <a className="ml-1.5">Add Volunteer Need Post</a>
                 </Link>
                 <Link
-                  className="border p-2 rounded-xl text-cyan-700 bg-cyan-50 border-cyan-200"
+                  className="border px-2 py-1 rounded-xl text-cyan-700 bg-cyan-50 border-cyan-200 w-full"
                   to={"/manageMyPosts"}
                 >
-                  <a>Manage My Posts </a>
+                  <a className="ml-8"> Manage My Posts </a>
                 </Link>
               </ul>
             </div>
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Button</a>
+          <div className="dropdown dropdown-bottom dropdown-end dropdown-hover">
+            <div tabIndex={0} role="button" className=" m-1">
+              My
+            </div>
+            <ul
+              tabIndex={0}
+              className="dropdown dropdown-content dropdown-hover menu bg-base-100 rounded-box z-[1] w-28 p-2 shadow border flex items-center text-base gap-y-2  font-semibold"
+            >
+              <Link
+                className="border px-2 py-1 rounded-xl text-blue-700 bg-blue-50 border-blue-200 w-full"
+                to={"/login"}
+              >
+                <a className="ml-4">Login</a>
+              </Link>
+              <Link
+                className="border px-2 py-1 rounded-xl text-cyan-700 bg-cyan-50 border-cyan-200 w-full"
+                to={"/aboutMe"}
+              >
+                <a>About Me </a>
+              </Link>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
