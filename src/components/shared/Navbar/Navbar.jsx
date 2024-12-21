@@ -1,5 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../../assets/logo/favIcon.png";
+import userIcon from "../../../assets/icons/userIcon.png";
 import "./Navbar.css";
 
 const Navbar = () => {
@@ -47,7 +48,10 @@ const Navbar = () => {
         <div className="navbar-end">
           <div className="dropdown dropdown-bottom dropdown-end dropdown-hover">
             <div tabIndex={0} role="button" className=" m-1">
-              My
+              <img
+                className="w-16 h-16 border-2 rounded-full border-slate-300 border-dashed"
+                src={userIcon}
+              />
             </div>
             <ul
               tabIndex={0}
