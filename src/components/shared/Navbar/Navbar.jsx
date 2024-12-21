@@ -26,12 +26,18 @@ const Navbar = () => {
               </div>
               <ul
                 tabIndex={0}
-                className="dropdown dropdown-content dropdown-hover menu bg-base-100 rounded-box z-[1] w-64 p-2 shadow border flex items-center text-base"
+                className="dropdown dropdown-content dropdown-hover menu bg-base-100 rounded-box z-[1] w-64 p-4 shadow border flex items-center text-base gap-y-4"
               >
-                <Link to={"/addVolunteerNeedPost"}>
+                <Link
+                  className="border p-2 rounded-xl text-blue-700 bg-blue-50 border-blue-200"
+                  to={"/addVolunteerNeedPost"}
+                >
                   <a>Add Volunteer Need Post</a>
                 </Link>
-                <Link to={"/manageMyPosts"}>
+                <Link
+                  className="border p-2 rounded-xl text-cyan-700 bg-cyan-50 border-cyan-200"
+                  to={"/manageMyPosts"}
+                >
                   <a>Manage My Posts </a>
                 </Link>
               </ul>
