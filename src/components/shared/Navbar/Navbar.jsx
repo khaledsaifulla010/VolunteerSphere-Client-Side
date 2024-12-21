@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import logo from "../../../assets/logo/favIcon.png";
 
 const Navbar = () => {
@@ -5,12 +6,12 @@ const Navbar = () => {
     <div>
       <div className="navbar bg-base-100">
         <div className="navbar-start">
-          <div className="flex items-center">
+          <Link to={"/"} className="flex items-center">
             <img className="w-12" src={logo} />
             <a className="text-3xl font-black text-transparent bg-gradient-to-r from-purple-700 to-pink-700 bg-clip-text">
               VolunteerSphere
             </a>
-          </div>
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
