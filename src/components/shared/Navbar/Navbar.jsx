@@ -7,6 +7,9 @@ const Navbar = () => {
         <div className="navbar-start">
           <div className="flex items-center">
             <img className="w-12" src={logo} />
+            <a className="text-3xl font-black text-transparent bg-gradient-to-r from-purple-700 to-pink-700 bg-clip-text">
+              VolunteerSphere
+            </a>
           </div>
         </div>
         <div className="navbar-center hidden lg:flex">
