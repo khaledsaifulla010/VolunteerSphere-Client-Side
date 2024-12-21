@@ -1,9 +1,9 @@
-import "./App.css";
-
 function App() {
   return (
     <>
-      <h1>VolunteerSphere</h1>
+      <h1 className="text-center mt-12 text-3xl font-5 font-bold">
+        VolunteerSphere
+      </h1>
     </>
   );
 }
