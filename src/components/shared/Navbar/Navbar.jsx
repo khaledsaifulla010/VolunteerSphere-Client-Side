@@ -1,10 +1,11 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../../assets/logo/favIcon.png";
+import "./Navbar.css";
 
 const Navbar = () => {
   return (
     <div>
-      <div className="navbar bg-base-100">
+      <div className="navbar bg-base-100 font-2">
         <div className="navbar-start">
           <Link to={"/"} className="flex items-center">
             <img className="w-12" src={logo} />
@@ -14,10 +15,12 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 flex items-center gap-8">
+          <ul className="menu menu-horizontal px-1 flex items-center gap-8 font-semibold text-base">
             <NavLink to={"/"}>Home</NavLink>
-            <NavLink to={"/"}>All Volunteer Need Posts</NavLink>
-            <NavLink to={"/"}>My Profile</NavLink>
+            <NavLink to={"/allVolunteerNeedPosts"}>
+              All Volunteer Need Posts
+            </NavLink>
+            <NavLink to={"/myProfile"}>My Profile</NavLink>
           </ul>
         </div>
         <div className="navbar-end">
