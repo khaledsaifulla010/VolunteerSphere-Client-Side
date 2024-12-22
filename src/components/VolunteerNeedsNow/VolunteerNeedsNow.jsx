@@ -27,7 +27,7 @@ const VolunteerNeedsNow = () => {
       </div>
       <div>
         <Link to={"/allVolunteerNeedPosts"}>
-          <button className=" border px-2 py-1 rounded-lg text-blue-700 bg-blue-100 border-blue-300 font-bold text-base mt-4 ml-[725px] w-24">
+          <button className=" border px-2 py-1 rounded-lg text-violet-700 bg-violet-100 border-violet-300 font-bold text-base mt-4 ml-[680px] w-24">
             See All
           </button>
         </Link>
