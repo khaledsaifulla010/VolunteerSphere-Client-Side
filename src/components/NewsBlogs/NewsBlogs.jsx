@@ -12,7 +12,7 @@ const NewsBlogs = () => {
   }, []);
 
   return (
-    <div className="mt-24 font-1">
+    <div className="mt-24 mb-24 font-1">
       <h1 className="text-5xl font-bold text-center mb-12">
         News & Blogs You Need
       </h1>
