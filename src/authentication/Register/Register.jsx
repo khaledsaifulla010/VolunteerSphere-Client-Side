@@ -2,6 +2,7 @@ import { useState } from "react";
 import registerLottie from "../../assets/lottieFiles/registerLottie.json";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import Lottie from "lottie-react";
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
   return (
