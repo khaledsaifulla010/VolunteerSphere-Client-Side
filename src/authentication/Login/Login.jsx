@@ -1,11 +1,17 @@
+import Lottie from 'lottie-react';
+import loginLottie from '../../assets/lottieFiles/loginLottie.json'
+import { FcGoogle } from "react-icons/fc";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+
 const Login = () => {
+     const [showPassword, setShowPassword] = useState(false);
   return (
     <div className="font-3">
       <div className="w-[1200px] ml-16 rounded-xl mt-12">
         <h1
-          style={{ animationDuration: "4s" }}
-          className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-pink-600 -mb-4 p-8 ml-[500px] animate__animated
-         animate__backInDown "
+          className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-pink-600 -mb-4 p-8 ml-[500px]"
         >
           Please Login
         </h1>
@@ -15,7 +21,7 @@ const Login = () => {
           </div>
 
           <div className="card bg-base-100 border w-[600px] shadow-lg transition-all hover:shadow-2xl">
-            <form className="card-body" onSubmit={handleSignIn}>
+            <form className="card-body">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text font-bold text-xl">Email</span>
@@ -49,7 +55,7 @@ const Login = () => {
               </div>
               <label className="label">
                 <Link
-                  to={"/forgetPassword"}
+                  
                   className="label-text-alt text-red-500 font-semibold text-base underline"
                 >
                   Forgot password?
@@ -73,7 +79,6 @@ const Login = () => {
             </div>
             <div className="divider px-9">OR</div>
             <button
-              onClick={handleGoogleSignIn}
               className="border p-2 rounded-xl w-[530px] flex items-center gap-2 ml-8 mb-8 mt-2 text-lg shadow-md font-bold transition duration-500 ease-in-out transform hover:scale-105 active:scale-95"
             >
               <FcGoogle className="ml-40 text-2xl mt-1"></FcGoogle>
