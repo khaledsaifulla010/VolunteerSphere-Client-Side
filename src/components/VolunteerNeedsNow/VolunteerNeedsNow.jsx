@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
 import VolunteerNeedsNowCard from "../VolunteerNeedsNowCard/VolunteerNeedsNowCard";
+import { Link } from "react-router-dom";
 
 const VolunteerNeedsNow = () => {
   const [allVolunteersData, setAllVolunteersData] = useState([]);
@@ -10,20 +11,26 @@ const VolunteerNeedsNow = () => {
       .get("http://localhost:5000/volunteerNeedsNow")
       .then((data) => setAllVolunteersData(data.data));
   }, []);
-  
 
   return (
     <div className="mt-24 font-1">
       <h1 className="text-5xl font-bold text-center mb-12">
         Volunteer Needs Now
       </h1>
-      <div className="grid grid-cols-3 mt-16 gap-y-12 gap-x-8 mb-24 ">
+      <div className="grid grid-cols-3 mt-16 gap-y-12 gap-x-8 mb-12 ">
         {allVolunteersData.map((volunteer) => (
           <VolunteerNeedsNowCard
             key={volunteer._id}
             volunteer={volunteer}
           ></VolunteerNeedsNowCard>
         ))}
+      </div>
+      <div>
+        <Link to={"/allVolunteerNeedPosts"}>
+          <button className=" border px-2 py-1 rounded-lg text-blue-700 bg-blue-100 border-blue-300 font-bold text-base mt-4 ml-[725px] w-24">
+            See All
+          </button>
+        </Link>
       </div>
     </div>
   );
