@@ -1,10 +1,38 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import registerLottie from "../../assets/lottieFiles/registerLottie.json";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Lottie from "lottie-react";
+import AuthContext from "../../context/AuthContext/AuthContext";
+import { updateProfile } from "firebase/auth";
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const { registerUser } = useContext(AuthContext);
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+    const name = e.target.name.value;
+    const email = e.target.email.value;
+    const photo_URL = e.target.photo_URL.value;
+    const password = e.target.password.value;
+
+    // Register User
+    registerUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+
+        // Update Profile
+
+        const profile = {
+          displayName: name,
+          photoURL: photo_URL,
+        };
+        return updateProfile(user, profile);
+      })
+      .then((error) => console.log(error));
+  };
+
   return (
     <div className="font-3">
       <div className="w-[1200px] ml-28 rounded-xl mt-12">
@@ -22,7 +50,7 @@ const Register = () => {
 
           {/* Registration Card */}
           <div className="card bg-base-100 border w-[600px] shadow-lg transition-all hover:shadow-2xl rounded-lg">
-            <form className="card-body">
+            <form onSubmit={handleRegister} className="card-body">
               {/* Name Field */}
               <div className="form-control">
                 <label className="label">
