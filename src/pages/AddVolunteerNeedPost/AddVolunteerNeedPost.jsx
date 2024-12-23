@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import AuthContext from "../../context/AuthContext/AuthContext";
+import axios from "axios";
 
 const AddVolunteerNeedPost = () => {
   const [deadline, setDeadline] = useState(new Date());
@@ -13,7 +14,12 @@ const AddVolunteerNeedPost = () => {
     const formData = new FormData(e.target);
     const newVolunteerNeedPost = Object.fromEntries(formData.entries());
 
-    console.log(newVolunteerNeedPost);
+    axios
+      .post(
+        "http://localhost:5000/allVolunteerNeedsPosts",
+        newVolunteerNeedPost
+      )
+      .then((data) => console.log(data.data));
   };
 
   return (
