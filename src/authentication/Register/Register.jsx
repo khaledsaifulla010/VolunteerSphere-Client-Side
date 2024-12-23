@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import Lottie from "lottie-react";
 import AuthContext from "../../context/AuthContext/AuthContext";
 import { updateProfile } from "firebase/auth";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
   const { registerUser } = useContext(AuthContext);
@@ -30,7 +32,18 @@ const Register = () => {
         };
         return updateProfile(user, profile);
       })
-      .then((error) => console.log(error));
+      .then(() => {
+        toast.success("Register Successfully!", {
+          position: "top-right",
+          theme: "colored",
+        });
+      })
+      .catch((error) => {
+        toast.error("Something Went Wrong!", {
+          position: "top-right",
+          theme: "colored",
+        });
+      });
   };
 
   return (
