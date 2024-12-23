@@ -6,6 +6,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import AuthContext from "../../context/AuthContext/AuthContext";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -16,8 +18,18 @@ const Login = () => {
 
   const handleGoogleSignIn = () => {
     googleSignin()
-      .then((result) => console.log(result.user))
-      .catch((error) => console.log(error));
+      .then((result) => {
+        toast.success("Login Successfully!", {
+          position: "top-right",
+          theme: "colored",
+        });
+      })
+      .catch((error) => {
+        toast.error("Something Went Wrong!", {
+          position: "top-right",
+          theme: "colored",
+        });
+      });
   };
 
   return (
