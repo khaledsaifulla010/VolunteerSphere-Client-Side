@@ -3,7 +3,8 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import AuthContext from "../../context/AuthContext/AuthContext";
 import axios from "axios";
-
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const AddVolunteerNeedPost = () => {
   const [deadline, setDeadline] = useState(new Date());
   const { user } = useContext(AuthContext);
@@ -19,7 +20,14 @@ const AddVolunteerNeedPost = () => {
         "http://localhost:5000/allVolunteerNeedsPosts",
         newVolunteerNeedPost
       )
-      .then((data) => console.log(data.data));
+      .then((data) => {
+        if (data.data.insertedId) {
+          toast.success("Volunteer Need Post Successfully", {
+            position: "top-right",
+            theme: "colored",
+          });
+        }
+      });
   };
 
   return (
