@@ -1,7 +1,10 @@
 import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import AuthContext from "../../context/AuthContext/AuthContext";
-
+import axios from "axios";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { GiJusticeStar } from "react-icons/gi";
 const BeAVolunteer = () => {
   const { user } = useContext(AuthContext);
 
@@ -18,14 +21,32 @@ const BeAVolunteer = () => {
     organizerEmail,
   } = postsDetails;
 
+  const handleBeAVoluenteerRequest = (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.target);
+    const beAVolunteer = Object.fromEntries(formData.entries());
+
+    axios
+      .post("http://localhost:5000/allVolunteers", beAVolunteer)
+      .then((data) => {
+        if (data.data.insertedId) {
+          toast.success("Volunteer Need Post Successfully", {
+            position: "top-right",
+            theme: "colored",
+          });
+        }
+      });
+  };
+
   return (
     <div className="mt-12 font-5 mb-24">
       <h1 className="text-5xl font-bold text-center mb-12">
-        Request As a Volunteer Page
+        Request As a Volunteer
       </h1>
 
       <div className="max-w-4xl mx-auto mt-8 p-6 bg-slate-50 rounded-lg shadow-md border transition-all duration-1000 ease-in-out hover:shadow-2xl hover:scale-105">
-        <form className="space-y-6">
+        <form className="space-y-6" onSubmit={handleBeAVoluenteerRequest}>
           <div>
             <label className="block text-purple-900 font-bold mb-2">
               Thumbnail URL
@@ -35,7 +56,7 @@ const BeAVolunteer = () => {
               name="thumbnail_URL"
               value={thumbnail_URL || ""}
               readOnly
-              className="input input-bordered w-full input-success"
+              className="input input-bordered w-full input-error cursor-not-allowed"
             />
           </div>
           <div>
@@ -47,7 +68,7 @@ const BeAVolunteer = () => {
               name="post_title"
               value={post_title || ""}
               readOnly
-              className="input input-bordered w-full input-success"
+              className="input input-bordered w-full input-error cursor-not-allowed"
             />
           </div>
           <div>
@@ -58,7 +79,7 @@ const BeAVolunteer = () => {
               name="description"
               value={description || ""}
               readOnly
-              className="textarea textarea-bordered w-full textarea-success"
+              className="textarea textarea-bordered w-full textarea-error cursor-not-allowed"
               rows="4"
             ></textarea>
           </div>
@@ -72,7 +93,7 @@ const BeAVolunteer = () => {
                 name="category"
                 value={category || ""}
                 readOnly
-                className="input input-bordered w-full input-success"
+                className="input input-bordered w-full input-error cursor-not-allowed"
               />
             </div>
             <div className="flex-1">
@@ -84,7 +105,7 @@ const BeAVolunteer = () => {
                 name="volunteersNeeded"
                 value={volunteersNeeded || ""}
                 readOnly
-                className="input input-bordered w-full input-success"
+                className="input input-bordered w-full input-error cursor-not-allowed"
               />
             </div>
           </div>
@@ -98,7 +119,7 @@ const BeAVolunteer = () => {
                 name="location"
                 value={location || ""}
                 readOnly
-                className="input input-bordered w-full input-success"
+                className="input input-bordered w-full input-error cursor-not-allowed"
               />
             </div>
             <div className="flex-1">
@@ -110,7 +131,7 @@ const BeAVolunteer = () => {
                 name="deadline"
                 value={deadline || ""}
                 readOnly
-                className="input input-bordered w-full input-success"
+                className="input input-bordered w-full input-error cursor-not-allowed"
               />
             </div>
             <div className="flex-1">
@@ -122,7 +143,7 @@ const BeAVolunteer = () => {
                 name="status"
                 value="Requested"
                 readOnly
-                className="input input-bordered w-full input-success"
+                className="input input-bordered w-full input-error cursor-not-allowed"
               />
             </div>
           </div>
@@ -136,7 +157,7 @@ const BeAVolunteer = () => {
                 name="organizerName"
                 value={organizerName || ""}
                 readOnly
-                className="input input-bordered w-full input-success"
+                className="input input-bordered w-full input-error cursor-not-allowed"
               />
             </div>
             <div className="flex-1">
@@ -148,7 +169,7 @@ const BeAVolunteer = () => {
                 name="organizerEmail"
                 value={organizerEmail || ""}
                 readOnly
-                className="input input-bordered w-full input-success"
+                className="input input-bordered w-full input-error cursor-not-allowed"
               />
             </div>
           </div>
@@ -162,7 +183,7 @@ const BeAVolunteer = () => {
                 name="volunteerName"
                 value={user.displayName || ""}
                 readOnly
-                className="input input-bordered w-full input-success"
+                className="input input-bordered w-full input-error cursor-not-allowed"
               />
             </div>
             <div className="flex-1">
@@ -174,7 +195,7 @@ const BeAVolunteer = () => {
                 name="volunteerEmail"
                 value={user.email || ""}
                 readOnly
-                className="input input-bordered w-full input-success"
+                className="input input-bordered w-full input-error cursor-not-allowed"
               />
             </div>
           </div>
@@ -196,9 +217,9 @@ const BeAVolunteer = () => {
               className="border p-2 rounded-lg text-green-700 bg-green-100 border-green-300
           font-bold text-lg mt-4 w-full
           transition-all duration-1000 ease-in-out 
-          hover:bg-green-200 hover:text-green-900 hover:shadow-lg hover:scale-105"
+          hover:bg-green-200 hover:text-green-900 hover:shadow-lg hover:scale-105 flex items-center justify-center gap-1"
             >
-              Request
+              <GiJusticeStar /> Request
             </button>
           </div>
         </form>
