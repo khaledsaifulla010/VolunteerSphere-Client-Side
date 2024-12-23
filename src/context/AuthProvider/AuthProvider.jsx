@@ -5,6 +5,7 @@ import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signInWithPopup,
+  signOut,
 } from "firebase/auth";
 import auth from "../../firebase/firebase.config";
 import { useEffect, useState } from "react";
@@ -43,12 +44,20 @@ const AuthProvider = ({ children }) => {
     });
   }, []);
 
+  // SIGN OUT USER //
+
+  const signOutUser = () => {
+    setLoadings(true);
+    return signOut(auth);
+  };
+
   const authInfo = {
     googleSignin,
     registerUser,
     loginUser,
     user,
     loadings,
+    signOutUser,
   };
 
   return (
