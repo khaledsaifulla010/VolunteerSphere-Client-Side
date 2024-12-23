@@ -3,8 +3,9 @@ import logo from "../../../assets/logo/favIcon.png";
 import userIcon from "../../../assets/icons/userIcon.png";
 import "./Navbar.css";
 import { useContext } from "react";
-
 import AuthContext from "../../../context/AuthContext/AuthContext";
+import "react-tooltip/dist/react-tooltip.css";
+import { Tooltip } from "react-tooltip";
 
 const Navbar = () => {
   const { user } = useContext(AuthContext);
@@ -50,7 +51,11 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <div className="dropdown dropdown-bottom dropdown-end dropdown-hover">
+          <div
+            data-tooltip-id="my-tooltip"
+            data-tooltip-content={user?.displayName || "No Display Name"}
+            className="dropdown dropdown-bottom dropdown-end dropdown-hover relative"
+          >
             <div
               tabIndex={0}
               role="button"
@@ -61,30 +66,41 @@ const Navbar = () => {
                 <img
                   className="w-16 h-16 border border-dotted border-slate-500 rounded-full p-1"
                   src={user.photoURL}
+                  alt="User profile"
                 />
               ) : (
                 <img
                   className="w-16 h-16 border-2 border-dashed border-slate-300 rounded-full"
                   src={userIcon}
+                  alt="Default user icon"
                 />
               )}
             </div>
-
+            <Tooltip
+              id="my-tooltip"
+              place="left"
+              style={{
+                transform: "translateY(-50%)",
+                top: "50%",
+                backgroundColor: "indigo",
+                fontWeight: 700,
+              }}
+            />
             <ul
               tabIndex={0}
-              className="dropdown dropdown-content dropdown-hover menu bg-base-100 rounded-box z-[1] w-28 p-2 shadow border flex items-center text-base gap-y-2  font-semibold"
+              className="dropdown dropdown-content dropdown-hover menu bg-base-100 rounded-box z-[1] w-28 p-2 shadow border flex items-center text-base gap-y-2 font-semibold"
             >
               <Link
                 className="border px-2 py-1 rounded-xl text-blue-700 bg-blue-50 border-blue-200 w-full"
                 to={"/login"}
               >
-                <a className="ml-4">Login</a>
+                <span className="ml-4">Login</span>
               </Link>
               <Link
                 className="border px-2 py-1 rounded-xl text-cyan-700 bg-cyan-50 border-cyan-200 w-full"
                 to={"/aboutMe"}
               >
-                <a>About Me </a>
+                <span>About Me</span>
               </Link>
             </ul>
           </div>
