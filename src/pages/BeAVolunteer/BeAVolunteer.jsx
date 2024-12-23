@@ -26,12 +26,13 @@ const BeAVolunteer = () => {
 
     const formData = new FormData(e.target);
     const beAVolunteer = Object.fromEntries(formData.entries());
+    beAVolunteer.postId = postsDetails._id;
 
     axios
       .post("http://localhost:5000/allVolunteers", beAVolunteer)
       .then((data) => {
-        if (data.data.insertedId) {
-          toast.success("Volunteer Need Post Successfully", {
+        if (data.data.modifiedCount > 0) {
+          toast.success(" Successfully Requested As a Volunteer", {
             position: "top-right",
             theme: "colored",
           });

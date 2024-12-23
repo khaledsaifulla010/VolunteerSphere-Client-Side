@@ -14,6 +14,9 @@ const AddVolunteerNeedPost = () => {
 
     const formData = new FormData(e.target);
     const newVolunteerNeedPost = Object.fromEntries(formData.entries());
+    newVolunteerNeedPost.volunteersNeeded = Number(
+      newVolunteerNeedPost.volunteersNeeded
+    );
 
     axios
       .post(
