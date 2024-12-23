@@ -2,6 +2,7 @@ import AuthContext from "../AuthContext/AuthContext";
 import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
+  signInWithEmailAndPassword,
   signInWithPopup,
 } from "firebase/auth";
 import auth from "../../firebase/firebase.config";
@@ -19,9 +20,16 @@ const AuthProvider = ({ children }) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
+  // LOGIN WITH EMAIL & PASSWORD
+
+  const loginUser = (email, password) => {
+    return signInWithEmailAndPassword(auth, email, password);
+  };
+
   const authInfo = {
     googleSignin,
     registerUser,
+    loginUser,
   };
 
   return (

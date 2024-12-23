@@ -12,12 +12,34 @@ import "react-toastify/dist/ReactToastify.css";
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
 
-  const { googleSignin } = useContext(AuthContext);
+  const { googleSignin, loginUser } = useContext(AuthContext);
 
   // Handle Google Signin
 
   const handleGoogleSignIn = () => {
     googleSignin()
+      .then((result) => {
+        toast.success("Login Successfully!", {
+          position: "top-right",
+          theme: "colored",
+        });
+      })
+      .catch((error) => {
+        toast.error("Something Went Wrong!", {
+          position: "top-right",
+          theme: "colored",
+        });
+      });
+  };
+
+  // Handle Login with Email & Password //
+
+  const handleSignIn = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    loginUser(email, password)
       .then((result) => {
         toast.success("Login Successfully!", {
           position: "top-right",
@@ -44,7 +66,7 @@ const Login = () => {
           </div>
 
           <div className="card bg-base-100 border w-[600px] shadow-lg transition-all hover:shadow-2xl">
-            <form className="card-body">
+            <form className="card-body" onSubmit={handleSignIn}>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text font-bold text-xl">Email</span>
