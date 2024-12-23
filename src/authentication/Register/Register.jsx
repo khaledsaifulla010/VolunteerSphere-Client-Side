@@ -34,7 +34,6 @@ const Register = () => {
     registerUser(email, password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
 
         // Update Profile
 
