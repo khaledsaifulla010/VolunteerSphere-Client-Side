@@ -18,6 +18,18 @@ const Register = () => {
     const photo_URL = e.target.photo_URL.value;
     const password = e.target.password.value;
 
+    // Password Validation //
+
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+
+    if (!passwordRegex.test(password)) {
+      toast.error(
+        "Atleast one Uppercase, one Lowercase Letter & minimum Six Characters!",
+        { position: "top-right", theme: "colored" }
+      );
+      return;
+    }
+
     // Register User
     registerUser(email, password)
       .then((result) => {
