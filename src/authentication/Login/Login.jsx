@@ -1,18 +1,29 @@
-import Lottie from 'lottie-react';
-import loginLottie from '../../assets/lottieFiles/loginLottie.json'
+import Lottie from "lottie-react";
+import loginLottie from "../../assets/lottieFiles/loginLottie.json";
 import { FcGoogle } from "react-icons/fc";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { useContext } from "react";
+import AuthContext from "../../context/AuthContext/AuthContext";
 
 const Login = () => {
-     const [showPassword, setShowPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+
+  const { googleSignin } = useContext(AuthContext);
+
+  // Handle Google Signin
+
+  const handleGoogleSignIn = () => {
+    googleSignin()
+      .then((result) => console.log(result.user))
+      .catch((error) => console.log(error));
+  };
+
   return (
     <div className="font-3">
       <div className="w-[1200px] ml-16 rounded-xl mt-12">
-        <h1
-          className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-pink-600 -mb-4 p-8 ml-[500px]"
-        >
+        <h1 className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-pink-600 -mb-4 p-8 ml-[500px]">
           Please Login
         </h1>
         <div className="flex items-center justify-between">
@@ -54,10 +65,7 @@ const Login = () => {
                 </button>
               </div>
               <label className="label">
-                <Link
-                  
-                  className="label-text-alt text-red-500 font-semibold text-base underline"
-                >
+                <Link className="label-text-alt text-red-500 font-semibold text-base underline">
                   Forgot password?
                 </Link>
               </label>
@@ -79,6 +87,7 @@ const Login = () => {
             </div>
             <div className="divider px-9">OR</div>
             <button
+              onClick={handleGoogleSignIn}
               className="border p-2 rounded-xl w-[530px] flex items-center gap-2 ml-8 mb-8 mt-2 text-lg shadow-md font-bold transition duration-500 ease-in-out transform hover:scale-105 active:scale-95"
             >
               <FcGoogle className="ml-40 text-2xl mt-1"></FcGoogle>
