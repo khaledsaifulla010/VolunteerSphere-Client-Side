@@ -28,7 +28,7 @@ const AllVolunteerNeedPostsCard = ({ volunteer }) => {
           <span className="text-purple-600 font-bold ml-1">{location}</span>
         </p>
         <Link
-          to={`/allVolunteerNeedPosts/${_id}`}
+          to={`/allVolunteerNeedsPosts/${_id}`}
           className="border px-2 py-1 rounded-lg text-blue-700 bg-blue-100 border-blue-300 font-bold text-base mt-4"
         >
           <button className=" w-full ">View Details</button>

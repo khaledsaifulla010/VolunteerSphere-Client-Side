@@ -5,7 +5,7 @@ import Home from "../pages/Home/Home";
 import Register from "../authentication/Register/Register";
 import AddVolunteerNeedPost from "../pages/AddVolunteerNeedPost/AddVolunteerNeedPost";
 import AllVolunteerNeedPosts from "../pages/AllVolunteerNeedPosts/AllVolunteerNeedPosts";
-import AllVolunteerNeedPostsDetails from "../components/AllVolunteerNeedPostsDetails/AllVolunteerNeedPostsDetails";
+import AllVolunteerNeedPostsDetails from "../pages/AllVolunteerNeedPostsDetails/AllVolunteerNeedPostsDetails";
 
 const router = createBrowserRouter([
   {
@@ -30,8 +30,10 @@ const router = createBrowserRouter([
         element: <AllVolunteerNeedPosts></AllVolunteerNeedPosts>,
       },
       {
-        path: "/allVolunteerNeedsPosts",
+        path: "/allVolunteerNeedsPosts/:id",
         element: <AllVolunteerNeedPostsDetails></AllVolunteerNeedPostsDetails>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/allVolunteerNeedsPosts/${params.id}`),
       },
     ],
   },
