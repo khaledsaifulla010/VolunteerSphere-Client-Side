@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { BiSolidCategory } from "react-icons/bi";
 import { GrUserWorker } from "react-icons/gr";
 import { IoLocation } from "react-icons/io5";
@@ -11,6 +11,7 @@ const AllVolunteerNeedPostsDetails = () => {
   const postsDetails = useLoaderData();
 
   const {
+    _id,
     thumbnail_URL,
     post_title,
     description,
@@ -28,7 +29,7 @@ const AllVolunteerNeedPostsDetails = () => {
         "{post_title}" Posts Details
       </h1>
       <div className=" flex justify-center items-center p-8 mt-12 mb-24">
-        <div className="card bg-gray-50 border-2 border-gray-300 w-[1200px] h-[700px] shadow-lg transition-transform duration-500 ease-in-out transform hover:scale-105">
+        <div className="card bg-gray-50 border-2 border-gray-300 w-[1400px] h-[700px] shadow-lg transition-transform duration-500 ease-in-out transform hover:scale-105">
           <figure className="flex">
             <img
               src={thumbnail_URL}
@@ -98,9 +99,14 @@ const AllVolunteerNeedPostsDetails = () => {
                 </p>
                 {description}
               </p>
-              <button className="border px-2 py-1 rounded-lg text-purple-800 bg-purple-100 border-purple-300 font-bold text-lg mt-10 flex items-center justify-center gap-1">
-                <FaCertificate /> Be a Volunteer
-              </button>
+              <Link
+                to={`/allVolunteerNeedsPosts/beAVolunteer/${_id}`}
+                className="border px-2 py-1 rounded-lg text-purple-800 bg-purple-100 border-purple-300 font-bold text-lg mt-10 "
+              >
+                <button className="flex items-center  gap-1 ml-[350px]">
+                  <FaCertificate /> Be a Volunteer
+                </button>
+              </Link>
             </div>
           </figure>
         </div>

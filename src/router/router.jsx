@@ -6,6 +6,7 @@ import Register from "../authentication/Register/Register";
 import AddVolunteerNeedPost from "../pages/AddVolunteerNeedPost/AddVolunteerNeedPost";
 import AllVolunteerNeedPosts from "../pages/AllVolunteerNeedPosts/AllVolunteerNeedPosts";
 import AllVolunteerNeedPostsDetails from "../pages/AllVolunteerNeedPostsDetails/AllVolunteerNeedPostsDetails";
+import BeAVolunteer from "../pages/BeAVolunteer/BeAVolunteer";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
         element: <AllVolunteerNeedPostsDetails></AllVolunteerNeedPostsDetails>,
         loader: ({ params }) =>
           fetch(`http://localhost:5000/allVolunteerNeedsPosts/${params.id}`),
+      },
+      {
+        path: "/allVolunteerNeedsPosts/beAVolunteer/:id",
+        element: <BeAVolunteer></BeAVolunteer>
       },
     ],
   },
