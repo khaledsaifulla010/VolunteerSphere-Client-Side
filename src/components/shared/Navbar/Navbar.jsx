@@ -2,8 +2,12 @@ import { Link, NavLink } from "react-router-dom";
 import logo from "../../../assets/logo/favIcon.png";
 import userIcon from "../../../assets/icons/userIcon.png";
 import "./Navbar.css";
+import { useContext } from "react";
+
+import AuthContext from "../../../context/AuthContext/AuthContext";
 
 const Navbar = () => {
+  const { user } = useContext(AuthContext);
   return (
     <div>
       <div className="navbar bg-base-100 font-2">
@@ -47,12 +51,25 @@ const Navbar = () => {
         </div>
         <div className="navbar-end">
           <div className="dropdown dropdown-bottom dropdown-end dropdown-hover">
-            <div tabIndex={0} role="button" className=" m-1">
-              <img
-                className="w-16 h-16 border-2 rounded-full border-slate-300 border-dashed"
-                src={userIcon}
-              />
+            <div
+              tabIndex={0}
+              role="button"
+              className="m-1"
+              aria-label="User profile"
+            >
+              {user?.photoURL ? (
+                <img
+                  className="w-16 h-16 border border-dotted border-slate-500 rounded-full p-1"
+                  src={user.photoURL}
+                />
+              ) : (
+                <img
+                  className="w-16 h-16 border-2 border-dashed border-slate-300 rounded-full"
+                  src={userIcon}
+                />
+              )}
             </div>
+
             <ul
               tabIndex={0}
               className="dropdown dropdown-content dropdown-hover menu bg-base-100 rounded-box z-[1] w-28 p-2 shadow border flex items-center text-base gap-y-2  font-semibold"
