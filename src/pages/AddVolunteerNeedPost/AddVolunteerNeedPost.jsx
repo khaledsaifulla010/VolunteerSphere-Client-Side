@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import AuthContext from "../../context/AuthContext/AuthContext";
 
 const AddVolunteerNeedPost = () => {
   const [deadline, setDeadline] = useState(new Date());
+  const { user } = useContext(AuthContext);
 
   return (
     <div className="font-3 mt-12 mb-24">
@@ -123,7 +125,7 @@ const AddVolunteerNeedPost = () => {
               </label>
               <input
                 type="text"
-                value="John Doe"
+                value={user?.displayName || ""}
                 className="input w-full cursor-not-allowed input-error font-bold text-gray-500"
                 readOnly
               />
@@ -134,7 +136,7 @@ const AddVolunteerNeedPost = () => {
               </label>
               <input
                 type="email"
-                value="john.doe@example.com"
+                value={user?.email || ""}
                 className="input w-full cursor-not-allowed input-error font-bold text-gray-500"
                 readOnly
               />
