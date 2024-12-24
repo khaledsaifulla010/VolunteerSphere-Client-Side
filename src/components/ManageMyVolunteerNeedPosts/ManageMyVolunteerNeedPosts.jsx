@@ -3,11 +3,11 @@ import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import { FaEdit } from "react-icons/fa";
 import { RiDeleteBin2Fill } from "react-icons/ri";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 const ManageMyVolunteerNeedPosts = () => {
   const { user } = useAuth();
   const [volunteerPosts, setVolunteerPost] = useState([]);
-
   useEffect(() => {
     axios
       .get(
@@ -15,6 +15,39 @@ const ManageMyVolunteerNeedPosts = () => {
       )
       .then((data) => setVolunteerPost(data.data));
   }, [user.email]);
+
+  const handleDeleteVolunteerNeedPost = (_id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You Won't be Able to Revert This Post!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+          .delete(`http://localhost:5000/allVolunteerNeedsPosts/${_id}`)
+          .then((data) => {
+            if (data.data.deletedCount > 0) {
+              Swal.fire({
+                title: "Your Post has been Deleted!",
+                icon: "success",
+              });
+              setVolunteerPost((prevPosts) =>
+                prevPosts.filter((post) => post._id !== _id)
+              );
+            } else {
+              Swal.fire({
+                icon: "error",
+                title: "Failed to Delete Your Post!",
+              });
+            }
+          });
+      }
+    });
+  };
 
   return (
     <div className="mt-12">
@@ -75,7 +108,9 @@ const ManageMyVolunteerNeedPosts = () => {
                       </Link>
                     </td>
                     <td className="text-center py-3 px-4 text-red-600 font-bold text-2xl">
-                      <button>
+                      <button
+                        onClick={() => handleDeleteVolunteerNeedPost(post._id)}
+                      >
                         <RiDeleteBin2Fill />
                       </button>
                     </td>
