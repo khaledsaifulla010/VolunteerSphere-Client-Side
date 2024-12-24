@@ -19,8 +19,10 @@ const NewsBlogsCard = ({ news }) => {
         <span className="text-green-600 bg-green-100 border-green-300 p-1 border w-16 text-lg font-bold text-center rounded-xl">
           {category}
         </span>
-        <h2 className="card-title font-bold text-2xl mt-4">{title}</h2>
-        <p className="text-sm font-semibold text-justify mt-4">{description}</p>
+        <h2 className="text-black font-bold text-2xl mt-4">{title}</h2>
+        <p className="text-sm font-semibold text-justify mt-4 text-black">
+          {description}
+        </p>
         <div className="flex items-center justify-between">
           <div className="flex items-center mt-4">
             <img
@@ -29,7 +31,7 @@ const NewsBlogsCard = ({ news }) => {
               className="w-14 h-14 border border-dashed border-slate-400 rounded-full mr-2 p-1"
             />
             <div>
-              <p className="font-bold text-base">{author}</p>
+              <p className="font-bold text-base text-black">{author}</p>
               <p className="text-xs font-semibold text-gray-400">
                 {posted_date}
               </p>

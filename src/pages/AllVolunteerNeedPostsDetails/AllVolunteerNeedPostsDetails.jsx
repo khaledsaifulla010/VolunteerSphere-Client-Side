@@ -103,7 +103,7 @@ const AllVolunteerNeedPostsDetails = () => {
                 to={`/allVolunteerNeedsPosts/beAVolunteer/${_id}`}
                 className="border px-2 py-1 rounded-lg text-purple-800 bg-purple-100 border-purple-300 font-bold text-lg mt-10 "
               >
-                <button className="flex items-center  gap-1 ml-[350px]">
+                <button className="flex items-center  gap-1 ml-[330px]">
                   <FaCertificate /> Be a Volunteer
                 </button>
               </Link>

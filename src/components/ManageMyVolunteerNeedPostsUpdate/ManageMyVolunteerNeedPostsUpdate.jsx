@@ -65,7 +65,7 @@ const ManageMyVolunteerNeedPostsUpdate = () => {
               type="text"
               name="thumbnail_URL"
               value={thumbnail_URL || ""}
-              className="input input-bordered w-full input-success"
+              className="input input-bordered w-full input-success text-black"
             />
           </div>
           <div>
@@ -76,7 +76,7 @@ const ManageMyVolunteerNeedPostsUpdate = () => {
               type="text"
               name="post_title"
               value={post_title || ""}
-              className="input input-bordered w-full input-success"
+              className="input input-bordered w-full input-success text-black"
             />
           </div>
           <div>
@@ -86,7 +86,7 @@ const ManageMyVolunteerNeedPostsUpdate = () => {
             <textarea
               name="description"
               value={description || ""}
-              className="textarea textarea-bordered w-full textarea-success"
+              className="textarea textarea-bordered w-full textarea-success text-black"
               rows="4"
             ></textarea>
           </div>
@@ -97,7 +97,7 @@ const ManageMyVolunteerNeedPostsUpdate = () => {
               </label>
               <select
                 name="category"
-                className="select select-bordered w-full select-success"
+                className="select select-bordered w-full select-success text-black"
                 required
               >
                 <option value="" disabled selected>
@@ -117,9 +117,9 @@ const ManageMyVolunteerNeedPostsUpdate = () => {
               <input
                 type="number"
                 name="volunteersNeeded"
-                value={volunteers} // Bind to the volunteers state
-                onChange={(e) => setVolunteers(e.target.value)} // Update state on input change
-                className="input input-bordered w-full input-success"
+                value={volunteers}
+                onChange={(e) => setVolunteers(e.target.value)}
+                className="input input-bordered w-full input-success text-black"
               />
             </div>
           </div>
@@ -132,7 +132,7 @@ const ManageMyVolunteerNeedPostsUpdate = () => {
                 type="text"
                 name="location"
                 value={location || ""}
-                className="input input-bordered w-full input-success"
+                className="input input-bordered w-full input-success text-black"
               />
             </div>
             <div className="flex-1">
@@ -144,9 +144,9 @@ const ManageMyVolunteerNeedPostsUpdate = () => {
                 selected={deadlines}
                 onChange={(date) => setDeadlines(date)}
                 dateFormat="dd/MM/yyyy"
-                className="input input-bordered w-[182%] input-success"
+                className="input input-bordered w-[182%] input-success text-black"
                 required
-                minDate={today} // Disable dates before today
+                minDate={today}
               />
             </div>
           </div>
@@ -160,7 +160,7 @@ const ManageMyVolunteerNeedPostsUpdate = () => {
                 name="organizerName"
                 value={organizerName || ""}
                 readOnly
-                className="input input-bordered w-full input-error cursor-not-allowed"
+                className="input input-bordered w-full input-error cursor-not-allowed text-black"
               />
             </div>
             <div className="flex-1">
@@ -172,7 +172,7 @@ const ManageMyVolunteerNeedPostsUpdate = () => {
                 name="organizerEmail"
                 value={organizerEmail || ""}
                 readOnly
-                className="input input-bordered w-full input-error cursor-not-allowed"
+                className="input input-bordered w-full input-error cursor-not-allowed text-black"
               />
             </div>
           </div>

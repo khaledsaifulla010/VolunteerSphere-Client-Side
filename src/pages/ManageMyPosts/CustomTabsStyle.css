@@ -9,7 +9,8 @@
   padding: 10px 20px;
   border: 1px solid;
   border-radius: 20px;
-  background-color: #f4f4f4;
+  background-color: var(--tab-bg-color, #f4f4f4);
+  color: var(--tab-text-color, #000);
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
@@ -17,16 +18,17 @@
 }
 
 .custom-tab:hover {
-  background-color: #e0e0ff;
+  background-color: var(--tab-hover-bg-color, #e0e0ff);
 }
 
 .custom-tab[aria-selected="true"] {
-  background-color: #6c63ff;
-  color: #fff;
+  background-color: var(--tab-active-bg-color, #6c63ff);
+  color: var(--tab-active-text-color, #fff);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   font-weight: bold;
 }
 
+/* Adjust react-tabs styles */
 .react-tabs__tab-list {
   border-bottom: none !important;
 }

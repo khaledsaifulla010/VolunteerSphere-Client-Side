@@ -51,7 +51,7 @@ const AddVolunteerNeedPost = () => {
               name="thumbnail_URL"
               type="url"
               placeholder="Enter Thumbnail URL"
-              className="input input-bordered w-full input-success"
+              className="input input-bordered w-full input-success text-black"
               required
             />
           </div>
@@ -65,7 +65,7 @@ const AddVolunteerNeedPost = () => {
               name="post_title"
               type="text"
               placeholder="Enter Post title"
-              className="input input-bordered w-full input-success"
+              className="input input-bordered w-full input-success text-black"
               required
             />
           </div>
@@ -78,7 +78,7 @@ const AddVolunteerNeedPost = () => {
             <textarea
               name="description"
               placeholder="Enter Description"
-              className="textarea textarea-bordered w-full textarea-success"
+              className="textarea textarea-bordered w-full textarea-success text-black"
               rows="4"
               required
             ></textarea>
@@ -92,7 +92,7 @@ const AddVolunteerNeedPost = () => {
               </label>
               <select
                 name="category"
-                className="select select-bordered w-full select-success"
+                className="select select-bordered w-full select-success text-black"
                 required
               >
                 <option value="" disabled selected>
@@ -115,7 +115,7 @@ const AddVolunteerNeedPost = () => {
                 name="location"
                 type="text"
                 placeholder="Enter Location"
-                className="input input-bordered w-full input-success"
+                className="input input-bordered w-full input-success text-black"
                 required
               />
             </div>
@@ -131,7 +131,7 @@ const AddVolunteerNeedPost = () => {
                 name="volunteersNeeded"
                 type="number"
                 placeholder="Enter Number of Volunteers"
-                className="input input-bordered w-full input-success"
+                className="input input-bordered w-full input-success text-black"
                 min="1"
                 required
               />
@@ -147,7 +147,7 @@ const AddVolunteerNeedPost = () => {
                 selected={deadline}
                 onChange={(date) => setDeadline(date)}
                 dateFormat="dd/MM/yyyy"
-                className="input input-bordered w-[182%] input-success"
+                className="input input-bordered w-[182%] input-success text-black"
                 required
               />
             </div>

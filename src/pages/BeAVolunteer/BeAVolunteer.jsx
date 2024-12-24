@@ -63,7 +63,7 @@ const BeAVolunteer = () => {
               name="thumbnail_URL"
               value={thumbnail_URL || ""}
               readOnly
-              className="input input-bordered w-full input-error cursor-not-allowed"
+              className="input input-bordered w-full input-error cursor-not-allowed text-black"
             />
           </div>
           <div>
@@ -75,7 +75,7 @@ const BeAVolunteer = () => {
               name="post_title"
               value={post_title || ""}
               readOnly
-              className="input input-bordered w-full input-error cursor-not-allowed"
+              className="input input-bordered w-full input-error cursor-not-allowed text-black"
             />
           </div>
           <div>
@@ -86,7 +86,7 @@ const BeAVolunteer = () => {
               name="description"
               value={description || ""}
               readOnly
-              className="textarea textarea-bordered w-full textarea-error cursor-not-allowed"
+              className="textarea textarea-bordered w-full textarea-error cursor-not-allowed text-black"
               rows="4"
             ></textarea>
           </div>
@@ -100,7 +100,7 @@ const BeAVolunteer = () => {
                 name="category"
                 value={category || ""}
                 readOnly
-                className="input input-bordered w-full input-error cursor-not-allowed"
+                className="input input-bordered w-full input-error cursor-not-allowed text-black"
               />
             </div>
             <div className="flex-1">
@@ -112,7 +112,7 @@ const BeAVolunteer = () => {
                 name="volunteersNeeded"
                 value={volunteersNeeded || ""}
                 readOnly
-                className="input input-bordered w-full input-error cursor-not-allowed"
+                className="input input-bordered w-full input-error cursor-not-allowed text-black"
               />
             </div>
           </div>
@@ -126,7 +126,7 @@ const BeAVolunteer = () => {
                 name="location"
                 value={location || ""}
                 readOnly
-                className="input input-bordered w-full input-error cursor-not-allowed"
+                className="input input-bordered w-full input-error cursor-not-allowed text-black"
               />
             </div>
             <div className="flex-1">
@@ -138,7 +138,7 @@ const BeAVolunteer = () => {
                 name="deadline"
                 value={deadline || ""}
                 readOnly
-                className="input input-bordered w-full input-error cursor-not-allowed"
+                className="input input-bordered w-full input-error cursor-not-allowed text-black"
               />
             </div>
             <div className="flex-1">
@@ -150,7 +150,7 @@ const BeAVolunteer = () => {
                 name="status"
                 value="Requested"
                 readOnly
-                className="input input-bordered w-full input-error cursor-not-allowed"
+                className="input input-bordered w-full input-error cursor-not-allowed text-black"
               />
             </div>
           </div>
@@ -164,7 +164,7 @@ const BeAVolunteer = () => {
                 name="organizerName"
                 value={organizerName || ""}
                 readOnly
-                className="input input-bordered w-full input-error cursor-not-allowed"
+                className="input input-bordered w-full input-error cursor-not-allowed text-black"
               />
             </div>
             <div className="flex-1">
@@ -176,7 +176,7 @@ const BeAVolunteer = () => {
                 name="organizerEmail"
                 value={organizerEmail || ""}
                 readOnly
-                className="input input-bordered w-full input-error cursor-not-allowed"
+                className="input input-bordered w-full input-error cursor-not-allowed text-black"
               />
             </div>
           </div>
@@ -190,7 +190,7 @@ const BeAVolunteer = () => {
                 name="volunteerName"
                 value={user.displayName || ""}
                 readOnly
-                className="input input-bordered w-full input-error cursor-not-allowed"
+                className="input input-bordered w-full input-error cursor-not-allowed text-black"
               />
             </div>
             <div className="flex-1">
@@ -202,7 +202,7 @@ const BeAVolunteer = () => {
                 name="volunteerEmail"
                 value={user.email || ""}
                 readOnly
-                className="input input-bordered w-full input-error cursor-not-allowed"
+                className="input input-bordered w-full input-error cursor-not-allowed text-black"
               />
             </div>
           </div>
@@ -213,7 +213,7 @@ const BeAVolunteer = () => {
             <textarea
               name="suggestion"
               placeholder="Enter your suggestion"
-              className="textarea textarea-bordered w-full textarea-success"
+              className="textarea textarea-bordered w-full textarea-success text-black"
               rows="4"
             ></textarea>
           </div>
