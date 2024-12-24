@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from "../../../assets/logo/favIcon.png";
 import userIcon from "../../../assets/icons/userIcon.png";
 import "./Navbar.css";
@@ -9,6 +9,9 @@ import "react-toastify/dist/ReactToastify.css";
 import useAuth from "../../../hooks/useAuth";
 const Navbar = () => {
   const { user, signOutUser } = useAuth();
+
+  const navigate = useNavigate();
+
   const handleSignOut = () => {
     signOutUser().then(() => {
       toast.success("Sign Out Successfully!", {
@@ -16,6 +19,7 @@ const Navbar = () => {
         theme: "colored",
       });
     });
+    navigate("/");
   };
 
   return (

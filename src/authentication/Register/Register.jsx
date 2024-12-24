@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import registerLottie from "../../assets/lottieFiles/registerLottie.json";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Lottie from "lottie-react";
 import AuthContext from "../../context/AuthContext/AuthContext";
 import { updateProfile } from "firebase/auth";
@@ -10,7 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
   const { registerUser } = useContext(AuthContext);
-
+  const redirects = useNavigate();
   const handleRegister = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
@@ -48,6 +48,7 @@ const Register = () => {
           position: "top-right",
           theme: "colored",
         });
+        redirects("/");
       })
       .catch((error) => {
         toast.error("Something Went Wrong!", {

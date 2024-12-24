@@ -3,7 +3,7 @@ import loginLottie from "../../assets/lottieFiles/loginLottie.json";
 import { FcGoogle } from "react-icons/fc";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import AuthContext from "../../context/AuthContext/AuthContext";
 import { toast } from "react-toastify";
@@ -13,7 +13,7 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   const { googleSignin, loginUser } = useContext(AuthContext);
-
+  const redirects = useNavigate();
   // Handle Google Signin
 
   const handleGoogleSignIn = () => {
@@ -23,6 +23,7 @@ const Login = () => {
           position: "top-right",
           theme: "colored",
         });
+        redirects("/");
       })
       .catch((error) => {
         toast.error("Something Went Wrong!", {
@@ -45,6 +46,7 @@ const Login = () => {
           position: "top-right",
           theme: "colored",
         });
+        redirects("/");
       })
       .catch((error) => {
         toast.error("Something Went Wrong!", {
