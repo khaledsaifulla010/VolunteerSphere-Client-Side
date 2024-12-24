@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -6,6 +6,7 @@ import { GiJusticeStar } from "react-icons/gi";
 import useAuth from "../../hooks/useAuth";
 const BeAVolunteer = () => {
   const { user } = useAuth();
+  const redirects = useNavigate();
 
   const postsDetails = useLoaderData();
   const {
@@ -30,8 +31,14 @@ const BeAVolunteer = () => {
     axios
       .post("http://localhost:5000/allVolunteers", beAVolunteer)
       .then((data) => {
-        if (data.data.modifiedCount > 0) {
+        if (data.status === 200 || data.data.acknowledged) {
           toast.success(" Successfully Requested As a Volunteer", {
+            position: "top-right",
+            theme: "colored",
+          });
+          redirects("/manageMyPosts");
+        } else {
+          toast.error("Failed to process your request. Please try again.", {
             position: "top-right",
             theme: "colored",
           });

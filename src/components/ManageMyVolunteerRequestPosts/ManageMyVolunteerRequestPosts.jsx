@@ -2,6 +2,7 @@ import axios from "axios";
 import useAuth from "../../hooks/useAuth";
 import { useEffect, useState } from "react";
 import { GiCancel } from "react-icons/gi";
+import Swal from "sweetalert2";
 const ManageMyVolunteerRequestPosts = () => {
   const [requestPosts, setRequestPosts] = useState([]);
   const { user } = useAuth();
@@ -13,6 +14,39 @@ const ManageMyVolunteerRequestPosts = () => {
       )
       .then((data) => setRequestPosts(data.data));
   }, [user.email]);
+
+  const handleVolunteerRequestCancel = (_id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You Won't be Able to Revert This Request!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, Cancel It!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+          .delete(`http://localhost:5000/allVolunteers/${_id}`)
+          .then((data) => {
+            if (data.data.deletedCount > 0) {
+              Swal.fire({
+                title: "Your Request has been Cancel!",
+                icon: "success",
+              });
+              setRequestPosts((prevPosts) =>
+                prevPosts.filter((post) => post._id !== _id)
+              );
+            } else {
+              Swal.fire({
+                icon: "error",
+                title: "Failed to Cancel Your Post!",
+              });
+            }
+          });
+      }
+    });
+  };
 
   return (
     <div className="mt-12">
@@ -66,7 +100,9 @@ const ManageMyVolunteerRequestPosts = () => {
                       {post.status}
                     </td>
                     <td className="text-center py-3 px-4 text-2xl text-red-600">
-                      <button>
+                      <button
+                        onClick={() => handleVolunteerRequestCancel(post._id)}
+                      >
                         <GiCancel />
                       </button>
                     </td>
