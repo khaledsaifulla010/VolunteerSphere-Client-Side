@@ -1,18 +1,18 @@
 import { Link } from "react-router-dom";
 
 const VolunteerNeedsNowCard = ({ volunteer }) => {
-  const { thumbnail, title, category, deadline } = volunteer;
+  const { thumbnail_URL, post_title, category, deadline } = volunteer;
   return (
     <div className="card card-side shadow-md hover:shadow-2xl transition-shadow duration-300 w-[470px] border font-1">
       <figure className="w-[25%]">
         <img
-          src={thumbnail}
-          alt={title}
+          src={thumbnail_URL}
+          alt={post_title}
           className="object-cover w-full h-full"
         />
       </figure>
       <div className="card-body w-[65%]">
-        <h2 className="text-2xl font-bold">{title}</h2>
+        <h2 className="text-2xl font-bold">{post_title}</h2>
         <p className="text-lg text-gray-500 font-semibold">
           <strong>Category :</strong>{" "}
           <span className="text-green-600">{category}</span>
