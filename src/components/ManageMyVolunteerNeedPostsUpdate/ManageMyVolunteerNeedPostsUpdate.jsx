@@ -3,6 +3,8 @@ import { GrUpdate } from "react-icons/gr";
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import axios from "axios";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const ManageMyVolunteerNeedPostsUpdate = () => {
   const updateVolunteerNeedPost = useLoaderData();
   const {
@@ -32,7 +34,14 @@ const ManageMyVolunteerNeedPostsUpdate = () => {
         `http://localhost:5000/allVolunteerNeedsPosts/${_id}`,
         newVolunteerNeedPost
       )
-      .then((data) => console.log(data.data));
+      .then((data) => {
+        if (data.data.modifiedCount > 0) {
+          toast.success("Volunteer Need Post Updated", {
+            position: "top-right",
+            theme: "colored",
+          });
+        }
+      });
   };
 
   const today = new Date();
