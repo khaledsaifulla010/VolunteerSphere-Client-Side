@@ -132,7 +132,7 @@ const AddVolunteerNeedPost = () => {
                 type="number"
                 placeholder="Enter Number of Volunteers"
                 className="input input-bordered w-full input-success text-black"
-                min="1"
+                min="0"
                 required
               />
             </div>

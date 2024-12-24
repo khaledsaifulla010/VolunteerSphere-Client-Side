@@ -7,6 +7,8 @@ import { FaBuilding } from "react-icons/fa";
 import { MdAttachEmail } from "react-icons/md";
 import { HiDocumentCheck } from "react-icons/hi2";
 import { FaCertificate } from "react-icons/fa";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const AllVolunteerNeedPostsDetails = () => {
   const postsDetails = useLoaderData();
 
@@ -22,6 +24,15 @@ const AllVolunteerNeedPostsDetails = () => {
     organizerName,
     organizerEmail,
   } = postsDetails;
+
+  const handleCantBeAVolunteer = () => {
+    if (volunteersNeeded <= 0) {
+      toast.error("Sorry, No Volunteers Needed Now!", {
+        position: "top-right",
+        theme: "colored",
+      });
+    }
+  };
 
   return (
     <div className="mt-12 font-5">
@@ -99,14 +110,21 @@ const AllVolunteerNeedPostsDetails = () => {
                 </p>
                 {description}
               </p>
-              <Link 
-                to={`/allVolunteerNeedsPosts/beAVolunteer/${_id}`}
-                className="border px-2 py-1 rounded-lg text-purple-800 bg-purple-100 border-purple-300 font-bold text-lg mt-10 "
+              <button
+                onClick={handleCantBeAVolunteer}
+                className="  w-full border px-2 py-1 rounded-lg text-purple-800 bg-purple-100 border-purple-300 font-bold text-lg mt-10 "
               >
-                <button className="flex items-center  gap-1 ml-[330px]">
+                <Link
+                  className="flex items-center  gap-1.5 ml-[350px]"
+                  to={
+                    volunteersNeeded > 0
+                      ? `/allVolunteerNeedsPosts/beAVolunteer/${_id}`
+                      : "#"
+                  }
+                >
                   <FaCertificate /> Be a Volunteer
-                </button>
-              </Link>
+                </Link>
+              </button>
             </div>
           </figure>
         </div>
