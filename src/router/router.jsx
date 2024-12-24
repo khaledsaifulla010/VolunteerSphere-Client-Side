@@ -8,6 +8,7 @@ import AllVolunteerNeedPosts from "../pages/AllVolunteerNeedPosts/AllVolunteerNe
 import AllVolunteerNeedPostsDetails from "../pages/AllVolunteerNeedPostsDetails/AllVolunteerNeedPostsDetails";
 import BeAVolunteer from "../pages/BeAVolunteer/BeAVolunteer";
 import ManageMyPosts from "../pages/ManageMyPosts/ManageMyPosts";
+import ManageMyVolunteerNeedPostsUpdate from "../components/ManageMyVolunteerNeedPostsUpdate/ManageMyVolunteerNeedPostsUpdate";
 
 const router = createBrowserRouter([
   {
@@ -46,6 +47,14 @@ const router = createBrowserRouter([
       {
         path: "/manageMyPosts",
         element: <ManageMyPosts></ManageMyPosts>,
+      },
+      {
+        path: "/manageMyPosts/:id",
+        element: (
+          <ManageMyVolunteerNeedPostsUpdate></ManageMyVolunteerNeedPostsUpdate>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/allVolunteerNeedsPosts/${params.id}`),
       },
     ],
   },

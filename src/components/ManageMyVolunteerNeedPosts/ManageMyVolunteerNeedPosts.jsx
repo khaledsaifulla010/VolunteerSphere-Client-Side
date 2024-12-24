@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import { FaEdit } from "react-icons/fa";
 import { RiDeleteBin2Fill } from "react-icons/ri";
+import { Link } from "react-router-dom";
 const ManageMyVolunteerNeedPosts = () => {
   const { user } = useAuth();
   const [volunteerPosts, setVolunteerPost] = useState([]);
@@ -67,9 +68,11 @@ const ManageMyVolunteerNeedPosts = () => {
                       {post.deadline}
                     </td>
                     <td className="text-center text-2xl py-3 px-4 text-amber-500 font-bold ">
-                      <button>
-                        <FaEdit />
-                      </button>
+                      <Link to={`${post._id}`}>
+                        <button>
+                          <FaEdit />
+                        </button>
+                      </Link>
                     </td>
                     <td className="text-center py-3 px-4 text-red-600 font-bold text-2xl">
                       <button>
