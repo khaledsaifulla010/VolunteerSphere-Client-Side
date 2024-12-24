@@ -2,15 +2,13 @@ import { Link, NavLink } from "react-router-dom";
 import logo from "../../../assets/logo/favIcon.png";
 import userIcon from "../../../assets/icons/userIcon.png";
 import "./Navbar.css";
-import { useContext } from "react";
-import AuthContext from "../../../context/AuthContext/AuthContext";
 import "react-tooltip/dist/react-tooltip.css";
 import { Tooltip } from "react-tooltip";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import useAuth from "../../../hooks/useAuth";
 const Navbar = () => {
-  const { user, signOutUser } = useContext(AuthContext);
-
+  const { user, signOutUser } = useAuth();
   const handleSignOut = () => {
     signOutUser().then(() => {
       toast.success("Sign Out Successfully!", {

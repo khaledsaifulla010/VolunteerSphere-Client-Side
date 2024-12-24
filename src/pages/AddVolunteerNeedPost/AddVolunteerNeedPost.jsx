@@ -1,13 +1,13 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import AuthContext from "../../context/AuthContext/AuthContext";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import useAuth from "../../hooks/useAuth";
 const AddVolunteerNeedPost = () => {
   const [deadline, setDeadline] = useState(new Date());
-  const { user } = useContext(AuthContext);
+  const { user } = useAuth()
 
   const handleVolunteerNeedPost = (e) => {
     e.preventDefault();

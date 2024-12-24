@@ -1,12 +1,11 @@
-import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
-import AuthContext from "../../context/AuthContext/AuthContext";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { GiJusticeStar } from "react-icons/gi";
+import useAuth from "../../hooks/useAuth";
 const BeAVolunteer = () => {
-  const { user } = useContext(AuthContext);
+  const { user } = useAuth();
 
   const postsDetails = useLoaderData();
   const {

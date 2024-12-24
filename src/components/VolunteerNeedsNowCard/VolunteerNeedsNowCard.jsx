@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 const VolunteerNeedsNowCard = ({ volunteer }) => {
-  const { _id, thumbnail, title, category, deadline } = volunteer;
+  const { thumbnail, title, category, deadline } = volunteer;
   return (
     <div className="card card-side shadow-md hover:shadow-2xl transition-shadow duration-300 w-[470px] border font-1">
       <figure className="w-[25%]">
