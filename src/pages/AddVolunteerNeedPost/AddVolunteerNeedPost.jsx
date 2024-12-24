@@ -5,10 +5,11 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import useAuth from "../../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 const AddVolunteerNeedPost = () => {
   const [deadline, setDeadline] = useState(new Date());
   const { user } = useAuth();
-
+  const redirects = useNavigate();
   const handleVolunteerNeedPost = (e) => {
     e.preventDefault();
 
@@ -29,6 +30,7 @@ const AddVolunteerNeedPost = () => {
             position: "top-right",
             theme: "colored",
           });
+          redirects("/allVolunteerNeedPosts");
         }
       });
   };
