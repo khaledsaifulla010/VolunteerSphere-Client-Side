@@ -12,6 +12,7 @@ import ManageMyVolunteerNeedPostsUpdate from "../components/ManageMyVolunteerNee
 import ErrorPage from "../ErrorPage/ErrorPage";
 import VolunteerNeedsNowDeatils from "../pages/VolunteerNeedsNowDeatils/VolunteerNeedsNowDeatils";
 import PrivateRoute from "./PrivateRoute";
+import AboutMe from "../pages/AboutMe/AboutMe";
 
 const router = createBrowserRouter([
   {
@@ -79,6 +80,14 @@ const router = createBrowserRouter([
         element: <VolunteerNeedsNowDeatils></VolunteerNeedsNowDeatils>,
         loader: ({ params }) =>
           fetch(`http://localhost:5000/volunteerNeedsNow/${params.id}`),
+      },
+      {
+        path: "/aboutMe",
+        element: (
+          <PrivateRoute>
+            <AboutMe></AboutMe>
+          </PrivateRoute>
+        ),
       },
     ],
   },
