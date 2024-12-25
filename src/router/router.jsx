@@ -58,12 +58,18 @@ const router = createBrowserRouter([
       },
       {
         path: "/manageMyPosts",
-        element: <ManageMyPosts></ManageMyPosts>,
+        element: (
+          <PrivateRoute>
+            <ManageMyPosts></ManageMyPosts>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/manageMyPosts/:id",
         element: (
-          <ManageMyVolunteerNeedPostsUpdate></ManageMyVolunteerNeedPostsUpdate>
+          <PrivateRoute>
+            <ManageMyVolunteerNeedPostsUpdate></ManageMyVolunteerNeedPostsUpdate>
+          </PrivateRoute>
         ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/allVolunteerNeedsPosts/${params.id}`),
