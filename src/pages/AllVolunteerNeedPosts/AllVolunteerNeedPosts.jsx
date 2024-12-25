@@ -4,15 +4,34 @@ import AllVolunteerNeedPostsCard from "../../components/AllVolunteerNeedPostsCar
 import { IoGrid } from "react-icons/io5";
 import { RiTableView } from "react-icons/ri";
 import { BsFillSearchHeartFill } from "react-icons/bs";
+
 const AllVolunteerNeedPosts = () => {
   const [allVolunteers, setAllVolunteers] = useState([]);
+  const [filteredVolunteers, setFilteredVolunteers] = useState([]);
   const [isTableLayout, setIsTableLayout] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     axios
       .get("http://localhost:5000/allVolunteerNeedsPosts")
-      .then((data) => setAllVolunteers(data.data));
+      .then((data) => {
+        setAllVolunteers(data.data);
+        setFilteredVolunteers(data.data);
+      })
+      .catch((error) => console.error("Error fetching data:", error));
   }, []);
+
+  // Search function
+  const handleSearch = () => {
+    if (searchQuery.trim() === "") {
+      setFilteredVolunteers(allVolunteers);
+    } else {
+      const filtered = allVolunteers.filter((volunteer) =>
+        volunteer.post_title.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+      setFilteredVolunteers(filtered);
+    }
+  };
 
   const handleLayoutToggle = (layout) => {
     setIsTableLayout(layout);
@@ -24,13 +43,18 @@ const AllVolunteerNeedPosts = () => {
         All Volunteer Need Posts
       </h1>
       <div className="text-center mb-2 flex items-center justify-end gap-4">
-        <div className="mr-16">
+        <div className="mr-16 relative">
           <input
             className="border rounded-l-lg w-[500px] h-14 p-2 font-bold"
             type="text"
             placeholder="Search with Post Title"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
           />
-          <button className="absolute right-[250px] top-[280px] h-14 w-[100px] border p-2 rounded-r-lg bg-blue-500 font-bold text-white flex items-center justify-center gap-1">
+          <button
+            className="absolute -right-2 top-0 h-14 w-[100px] border p-2 rounded-r-lg bg-blue-500 font-bold text-white flex items-center justify-center gap-1"
+            onClick={handleSearch}
+          >
             Search
             <BsFillSearchHeartFill className="mt-0.5" />
           </button>
@@ -57,7 +81,11 @@ const AllVolunteerNeedPosts = () => {
         </div>
       </div>
       <div className="divider"></div>
-      {isTableLayout ? (
+      {filteredVolunteers.length === 0 ? (
+        <div className="text-center text-2xl font-bold text-red-500 mt-16">
+          No posts found for "{searchQuery}".
+        </div>
+      ) : isTableLayout ? (
         <div className="overflow-x-auto mt-20 mb-72 px-8">
           <div className="rounded-lg shadow-lg border border-gray-300">
             <table className="table w-full border-collapse">
@@ -70,7 +98,7 @@ const AllVolunteerNeedPosts = () => {
                 </tr>
               </thead>
               <tbody className="text-gray-700">
-                {allVolunteers.map((volunteer, index) => (
+                {filteredVolunteers.map((volunteer, index) => (
                   <AllVolunteerNeedPostsCard
                     key={volunteer._id}
                     volunteer={volunteer}
@@ -84,7 +112,7 @@ const AllVolunteerNeedPosts = () => {
         </div>
       ) : (
         <div className="grid grid-cols-3 mt-16 gap-y-12 gap-x-8 mb-12">
-          {allVolunteers.map((volunteer) => (
+          {filteredVolunteers.map((volunteer) => (
             <AllVolunteerNeedPostsCard
               key={volunteer._id}
               volunteer={volunteer}
