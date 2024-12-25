@@ -46,6 +46,7 @@ const Login = () => {
           position: "top-right",
           theme: "colored",
         });
+
         redirects("/");
       })
       .catch((error) => {

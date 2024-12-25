@@ -10,7 +10,8 @@ const ManageMyVolunteerRequestPosts = () => {
   useEffect(() => {
     axios
       .get(
-        `http://localhost:5000/allVolunteersRequestDataIndividually?email=${user.email}`
+        `http://localhost:5000/allVolunteersRequestDataIndividually?email=${user.email}`,
+        { withCredentials: true }
       )
       .then((data) => setRequestPosts(data.data));
   }, [user.email]);

@@ -9,6 +9,7 @@ import {
 } from "firebase/auth";
 import auth from "../../firebase/firebase.config";
 import { useEffect, useState } from "react";
+import axios from "axios";
 
 const googleProvider = new GoogleAuthProvider();
 
@@ -40,8 +41,29 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
+
+      if (currentUser?.email) {
+        const user = { email: currentUser.email };
+        axios
+          .post("http://localhost:5000/jwt", user, { withCredentials: true })
+          .then((res) => {
+            console.log("Login Token", res.data);
+            setLoadings(false);
+          });
+      } else {
+        axios
+          .post("http://localhost:5000/logout", {}, { withCredentials: true })
+          .then((res) => {
+            console.log("logout", res.data);
+            setLoadings(false);
+          });
+      }
+
       setLoadings(false);
     });
+    return () => {
+      unsubscribe();
+    };
   }, []);
 
   // SIGN OUT USER //
