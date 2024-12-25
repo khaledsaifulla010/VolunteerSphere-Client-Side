@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import AllVolunteerNeedPostsCard from "../../components/AllVolunteerNeedPostsCard/AllVolunteerNeedPostsCard";
 import { IoGrid } from "react-icons/io5";
 import { RiTableView } from "react-icons/ri";
+import { BsFillSearchHeartFill } from "react-icons/bs";
 const AllVolunteerNeedPosts = () => {
   const [allVolunteers, setAllVolunteers] = useState([]);
   const [isTableLayout, setIsTableLayout] = useState(false);
@@ -18,11 +19,22 @@ const AllVolunteerNeedPosts = () => {
   };
 
   return (
-    <div className="mt-12 font-4 mb-24">
-      <h1 className="text-5xl font-bold text-center mb-2">
+    <div className="mt-4 font-4 mb-24">
+      <h1 className="text-5xl font-bold text-center mb-12">
         All Volunteer Need Posts
       </h1>
       <div className="text-center mb-2 flex items-center justify-end gap-4">
+        <div className="mr-16">
+          <input
+            className="border rounded-l-lg w-[500px] h-14 p-2 font-bold"
+            type="text"
+            placeholder="Search with Post Title"
+          />
+          <button className="absolute right-[250px] top-[280px] h-14 w-[100px] border p-2 rounded-r-lg bg-blue-500 font-bold text-white flex items-center justify-center gap-1">
+            Search
+            <BsFillSearchHeartFill className="mt-0.5" />
+          </button>
+        </div>
         <div className="tooltip font-bold" data-tip="Card View">
           <button
             onClick={() => handleLayoutToggle(false)}
