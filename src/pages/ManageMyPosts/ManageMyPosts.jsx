@@ -2,11 +2,18 @@ import ManageMyVolunteerNeedPosts from "../../components/ManageMyVolunteerNeedPo
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import "./CustomTabsStyle.css";
+import "animate.css/animate.css";
 import ManageMyVolunteerRequestPosts from "../../components/ManageMyVolunteerRequestPosts/ManageMyVolunteerRequestPosts";
 const ManageMyPosts = () => {
   return (
     <div className="mt-12 mb-24 font-2">
-      <h1 className="text-5xl font-bold text-center mb-16 ">Manage My Post</h1>
+      <h1
+        style={{ animationDuration: "4s" }}
+        className="text-5xl font-bold text-center mb-16 animate__animated
+         animate__backInDown "
+      >
+        Manage My Post
+      </h1>
       <Tabs>
         <div className="border p-4 bg-purple-100 rounded-xl">
           <TabList className="custom-tab-list ">

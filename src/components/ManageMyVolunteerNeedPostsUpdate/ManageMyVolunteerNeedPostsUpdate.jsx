@@ -5,6 +5,7 @@ import DatePicker from "react-datepicker";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "animate.css/animate.css";
 const ManageMyVolunteerNeedPostsUpdate = () => {
   const updateVolunteerNeedPost = useLoaderData();
   const {
@@ -49,7 +50,11 @@ const ManageMyVolunteerNeedPostsUpdate = () => {
 
   return (
     <div className="mt-12 mb-24 font-3">
-      <h1 className="text-5xl font-bold text-center mb-16 ">
+      <h1
+        style={{ animationDuration: "4s" }}
+        className="text-5xl font-bold text-center mb-16 animate__animated
+         animate__backInDown"
+      >
         Update My Volunteer Need Post
       </h1>
       <div className="max-w-4xl mx-auto mt-8 p-6 bg-slate-50 rounded-lg shadow-md border transition-all duration-1000 ease-in-out hover:shadow-2xl hover:scale-105">

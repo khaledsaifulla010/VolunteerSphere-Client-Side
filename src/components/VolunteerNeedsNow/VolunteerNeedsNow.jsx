@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import VolunteerNeedsNowCard from "../VolunteerNeedsNowCard/VolunteerNeedsNowCard";
 import { Link } from "react-router-dom";
+import "animate.css/animate.css";
 
 const VolunteerNeedsNow = () => {
   const [allVolunteersData, setAllVolunteersData] = useState([]);
@@ -14,7 +15,11 @@ const VolunteerNeedsNow = () => {
 
   return (
     <div className="mt-24 font-1">
-      <h1 className="text-5xl font-bold text-center mb-12">
+      <h1
+        style={{ animationDuration: "4s" }}
+        className="text-5xl font-bold text-center mb-12 animate__animated
+         animate__backInDown"
+      >
         Volunteer Needs Now
       </h1>
       <div className="grid grid-cols-3 mt-16 gap-y-12 gap-x-8 mb-12 ">

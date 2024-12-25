@@ -9,6 +9,7 @@ import { HiDocumentCheck } from "react-icons/hi2";
 import { FaCertificate } from "react-icons/fa";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "animate.css/animate.css";
 const AllVolunteerNeedPostsDetails = () => {
   const postsDetails = useLoaderData();
 
@@ -36,7 +37,11 @@ const AllVolunteerNeedPostsDetails = () => {
 
   return (
     <div className="mt-12 font-5">
-      <h1 className="text-5xl font-bold text-center mb-12">
+      <h1
+        style={{ animationDuration: "4s" }}
+        className="text-5xl font-bold text-center mb-12 animate__animated
+         animate__backInDown"
+      >
         "{post_title}" Posts Details
       </h1>
       <div className=" flex justify-center items-center p-8 mt-12 mb-24">
@@ -110,21 +115,22 @@ const AllVolunteerNeedPostsDetails = () => {
                 </p>
                 {description}
               </p>
-              <button
-                onClick={handleCantBeAVolunteer}
-                className="  w-full border px-2 py-1 rounded-lg text-purple-800 bg-purple-100 border-purple-300 font-bold text-lg mt-10 "
+
+              <Link
+                className="  w-full border px-2 py-1 rounded-lg text-purple-800 bg-purple-100 border-purple-300 font-bold text-lg mt-10  "
+                to={
+                  volunteersNeeded > 0
+                    ? `/allVolunteerNeedsPosts/beAVolunteer/${_id}`
+                    : "#"
+                }
               >
-                <Link
-                  className="flex items-center  gap-1.5 ml-[350px]"
-                  to={
-                    volunteersNeeded > 0
-                      ? `/allVolunteerNeedsPosts/beAVolunteer/${_id}`
-                      : "#"
-                  }
+                <button
+                  onClick={handleCantBeAVolunteer}
+                  className="flex items-center  gap-1.5 ml-80"
                 >
                   <FaCertificate /> Be a Volunteer
-                </Link>
-              </button>
+                </button>
+              </Link>
             </div>
           </figure>
         </div>

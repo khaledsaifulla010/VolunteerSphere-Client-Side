@@ -4,7 +4,7 @@ import AllVolunteerNeedPostsCard from "../../components/AllVolunteerNeedPostsCar
 import { IoGrid } from "react-icons/io5";
 import { RiTableView } from "react-icons/ri";
 import { BsFillSearchHeartFill } from "react-icons/bs";
-
+import "animate.css/animate.css";
 const AllVolunteerNeedPosts = () => {
   const [allVolunteers, setAllVolunteers] = useState([]);
   const [filteredVolunteers, setFilteredVolunteers] = useState([]);
@@ -39,7 +39,11 @@ const AllVolunteerNeedPosts = () => {
 
   return (
     <div className="mt-4 font-4 mb-24">
-      <h1 className="text-5xl font-bold text-center mb-12">
+      <h1
+        style={{ animationDuration: "4s" }}
+        className="text-5xl font-bold text-center mb-12 animate__animated
+         animate__backInDown"
+      >
         All Volunteer Need Posts
       </h1>
       <div className="text-center mb-2 flex items-center justify-end gap-4">

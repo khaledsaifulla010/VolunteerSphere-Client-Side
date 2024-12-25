@@ -4,7 +4,7 @@ import { GrUserWorker } from "react-icons/gr";
 import { HiDocumentCheck } from "react-icons/hi2";
 import { IoLocation } from "react-icons/io5";
 import { useLoaderData } from "react-router-dom";
-
+import "animate.css/animate.css";
 const VolunteerNeedsNowDeatils = () => {
   const volunteerPostDetails = useLoaderData();
   const {
@@ -20,7 +20,11 @@ const VolunteerNeedsNowDeatils = () => {
 
   return (
     <div className=" mt-12 font-5">
-      <h1 className="text-5xl font-bold text-center mb-12">
+      <h1
+        style={{ animationDuration: "4s" }}
+        className="text-5xl font-bold text-center mb-12 animate__animated
+         animate__backInDown"
+      >
         "{post_title}" Posts Details
       </h1>
       <div className=" flex justify-center items-center p-8 mt-12 mb-24">

@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { GiJusticeStar } from "react-icons/gi";
 import useAuth from "../../hooks/useAuth";
+import "animate.css/animate.css";
 const BeAVolunteer = () => {
   const { user } = useAuth();
   const redirects = useNavigate();
@@ -48,7 +49,11 @@ const BeAVolunteer = () => {
 
   return (
     <div className="mt-12 font-5 mb-24">
-      <h1 className="text-5xl font-bold text-center mb-12">
+      <h1
+        style={{ animationDuration: "4s" }}
+        className="text-5xl font-bold text-center mb-12 animate__animated
+         animate__backInDown"
+      >
         Request As a Volunteer
       </h1>
 
