@@ -10,6 +10,7 @@ import BeAVolunteer from "../pages/BeAVolunteer/BeAVolunteer";
 import ManageMyPosts from "../pages/ManageMyPosts/ManageMyPosts";
 import ManageMyVolunteerNeedPostsUpdate from "../components/ManageMyVolunteerNeedPostsUpdate/ManageMyVolunteerNeedPostsUpdate";
 import ErrorPage from "../ErrorPage/ErrorPage";
+import VolunteerNeedsNowDeatils from "../pages/VolunteerNeedsNowDeatils/VolunteerNeedsNowDeatils";
 
 const router = createBrowserRouter([
   {
@@ -57,6 +58,10 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/allVolunteerNeedsPosts/${params.id}`),
+      },
+      {
+        path: "/volunteerNeedsNow/:id",
+        element: <VolunteerNeedsNowDeatils></VolunteerNeedsNowDeatils>,
       },
     ],
   },

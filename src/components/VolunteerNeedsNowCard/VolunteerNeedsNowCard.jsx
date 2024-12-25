@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 const VolunteerNeedsNowCard = ({ volunteer }) => {
-  const { thumbnail_URL, post_title, category, deadline } = volunteer;
+  const { _id, thumbnail_URL, post_title, category, deadline } = volunteer;
   return (
     <div className="card card-side shadow-md hover:shadow-2xl transition-shadow duration-300 w-[470px] border font-1">
       <figure className="w-[25%]">
@@ -22,7 +22,7 @@ const VolunteerNeedsNowCard = ({ volunteer }) => {
           <span className="text-rose-600 font-bold">{deadline}</span>
         </p>
         <Link
-          to={"/allVolunteerNeedPosts"}
+          to={`/volunteerNeedsNow/${_id}`}
           className="border px-2 py-1 rounded-lg text-blue-700 bg-blue-100 border-blue-300 font-bold text-base mt-4"
         >
           <button className=" w-full ">View Details</button>
