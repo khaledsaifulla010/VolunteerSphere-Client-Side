@@ -83,7 +83,7 @@ const AllVolunteerNeedPosts = () => {
       <div className="divider"></div>
       {filteredVolunteers.length === 0 ? (
         <div className="text-center text-2xl font-bold text-red-500 mt-16">
-          No posts found for "{searchQuery}".
+          No Posts Found.
         </div>
       ) : isTableLayout ? (
         <div className="overflow-x-auto mt-20 mb-72 px-8">

@@ -11,6 +11,7 @@ import ManageMyPosts from "../pages/ManageMyPosts/ManageMyPosts";
 import ManageMyVolunteerNeedPostsUpdate from "../components/ManageMyVolunteerNeedPostsUpdate/ManageMyVolunteerNeedPostsUpdate";
 import ErrorPage from "../ErrorPage/ErrorPage";
 import VolunteerNeedsNowDeatils from "../pages/VolunteerNeedsNowDeatils/VolunteerNeedsNowDeatils";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -29,7 +30,12 @@ const router = createBrowserRouter([
       },
       {
         path: "/addVolunteerNeedPost",
-        element: <AddVolunteerNeedPost></AddVolunteerNeedPost>,
+        element: (
+          <PrivateRoute>
+            {" "}
+            <AddVolunteerNeedPost></AddVolunteerNeedPost>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/allVolunteerNeedPosts",
