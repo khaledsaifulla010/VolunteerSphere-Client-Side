@@ -30,7 +30,10 @@ const BeAVolunteer = () => {
     beAVolunteer.postId = postsDetails._id;
 
     axios
-      .post("http://localhost:5000/allVolunteers", beAVolunteer)
+      .post(
+        "https://volunteer-sphere-server-side.vercel.app/allVolunteers",
+        beAVolunteer
+      )
       .then((data) => {
         if (data.status === 200 || data.data.acknowledged) {
           toast.success(" Successfully Requested As a Volunteer", {

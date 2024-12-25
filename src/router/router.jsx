@@ -49,13 +49,17 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/allVolunteerNeedsPosts/${params.id}`),
+          fetch(
+            `https://volunteer-sphere-server-side.vercel.app/allVolunteerNeedsPosts/${params.id}`
+          ),
       },
       {
         path: "/allVolunteerNeedsPosts/beAVolunteer/:id",
         element: <BeAVolunteer></BeAVolunteer>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/allVolunteerNeedsPosts/${params.id}`),
+          fetch(
+            `https://volunteer-sphere-server-side.vercel.app/allVolunteerNeedsPosts/${params.id}`
+          ),
       },
       {
         path: "/manageMyPosts",
@@ -73,13 +77,17 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/allVolunteerNeedsPosts/${params.id}`),
+          fetch(
+            `https://volunteer-sphere-server-side.vercel.app/allVolunteerNeedsPosts/${params.id}`
+          ),
       },
       {
         path: "/volunteerNeedsNow/:id",
         element: <VolunteerNeedsNowDeatils></VolunteerNeedsNowDeatils>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/volunteerNeedsNow/${params.id}`),
+          fetch(
+            `https://volunteer-sphere-server-side.vercel.app/volunteerNeedsNow/${params.id}`
+          ),
       },
       {
         path: "/aboutMe",

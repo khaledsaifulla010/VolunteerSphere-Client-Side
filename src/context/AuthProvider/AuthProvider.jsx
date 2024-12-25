@@ -45,14 +45,20 @@ const AuthProvider = ({ children }) => {
       if (currentUser?.email) {
         const user = { email: currentUser.email };
         axios
-          .post("http://localhost:5000/jwt", user, { withCredentials: true })
+          .post("https://volunteer-sphere-server-side.vercel.app/jwt", user, {
+            withCredentials: true,
+          })
           .then((res) => {
             console.log("Login Token", res.data);
             setLoadings(false);
           });
       } else {
         axios
-          .post("http://localhost:5000/logout", {}, { withCredentials: true })
+          .post(
+            "https://volunteer-sphere-server-side.vercel.app/logout",
+            {},
+            { withCredentials: true }
+          )
           .then((res) => {
             console.log("logout", res.data);
             setLoadings(false);

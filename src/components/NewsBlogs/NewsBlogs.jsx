@@ -7,7 +7,7 @@ const NewsBlogs = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/newsBlogs")
+      .get("https://volunteer-sphere-server-side.vercel.app/newsBlogs")
       .then((data) => setNews(data.data));
   }, []);
 

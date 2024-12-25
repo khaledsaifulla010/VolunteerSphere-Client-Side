@@ -10,7 +10,7 @@ const ManageMyVolunteerRequestPosts = () => {
   useEffect(() => {
     axios
       .get(
-        `http://localhost:5000/allVolunteersRequestDataIndividually?email=${user.email}`,
+        `https://volunteer-sphere-server-side.vercel.app/allVolunteersRequestDataIndividually?email=${user.email}`,
         { withCredentials: true }
       )
       .then((data) => setRequestPosts(data.data));
@@ -28,7 +28,9 @@ const ManageMyVolunteerRequestPosts = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:5000/allVolunteers/${_id}`)
+          .delete(
+            `https://volunteer-sphere-server-side.vercel.app/allVolunteers/${_id}`
+          )
           .then((data) => {
             if (data.data.deletedCount > 0) {
               Swal.fire({

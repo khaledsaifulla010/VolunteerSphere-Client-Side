@@ -32,7 +32,7 @@ const ManageMyVolunteerNeedPostsUpdate = () => {
 
     axios
       .put(
-        `http://localhost:5000/allVolunteerNeedsPosts/${_id}`,
+        `https://volunteer-sphere-server-side.vercel.app/allVolunteerNeedsPosts/${_id}`,
         newVolunteerNeedPost
       )
       .then((data) => {

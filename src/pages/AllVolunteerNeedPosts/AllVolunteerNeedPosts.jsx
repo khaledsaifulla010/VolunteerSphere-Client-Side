@@ -13,7 +13,9 @@ const AllVolunteerNeedPosts = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/allVolunteerNeedsPosts")
+      .get(
+        "https://volunteer-sphere-server-side.vercel.app/allVolunteerNeedsPosts"
+      )
       .then((data) => {
         setAllVolunteers(data.data);
         setFilteredVolunteers(data.data);

@@ -9,7 +9,7 @@ const VolunteerNeedsNow = () => {
   const [allVolunteersData, setAllVolunteersData] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:5000/volunteerNeedsNow")
+      .get("https://volunteer-sphere-server-side.vercel.app/volunteerNeedsNow")
       .then((data) => setAllVolunteersData(data.data));
   }, []);
 
