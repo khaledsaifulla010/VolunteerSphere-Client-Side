@@ -7,12 +7,11 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import useAuth from "../../../hooks/useAuth";
 import DarkWhiteMode from "../../DarkWhiteMode/DarkWhiteMode";
-import { useState } from "react";
+import "./Navbar.css";
 
 const Navbar = () => {
   const { user, signOutUser } = useAuth();
   const navigate = useNavigate();
-  const [darkMode, setDarkMode] = useState(false);
 
   const handleSignOut = () => {
     signOutUser().then(() => {
@@ -25,54 +24,42 @@ const Navbar = () => {
   };
 
   return (
-    <div
-      className={`navbar ${
-        darkMode ? "bg-black text-white" : "bg-base-100 text-black"
-      } font-2 py-12`}
-    >
+    <div className="navbar bg-base-100 font-2 rounded-xl px-8 shadow-md hover:shadow-[0px_10px_30px_rgba(0,0,0,0.3)] transition-shadow duration-1000 ease-in-out fixed left-0 right-0 z-10 top-0  py-4">
       <div className="navbar-start">
         <Link to={"/"} className="flex items-center">
           <img className="w-12" src={logo} alt="Logo" />
-          <a className="text-3xl font-black text-transparent bg-gradient-to-r from-purple-700 to-pink-700 bg-clip-text">
+          <span className="text-3xl font-black text-transparent bg-gradient-to-r from-purple-700 to-pink-700 bg-clip-text">
             VolunteerSphere
-          </a>
+          </span>
         </Link>
       </div>
+
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 flex items-center gap-16 font-semibold text-base">
           <NavLink
             to={"/"}
-            className={({ isActive }) =>
-              isActive
-                ? "text-rose-500 underline"
-                : darkMode
-                ? "text-gray-300"
-                : "text-black"
-            }
+            className="text-black hover:text-rose-500  transition duration-300"
           >
             Home
           </NavLink>
           <NavLink
             to={"/allVolunteerNeedPosts"}
-            className={({ isActive }) =>
-              isActive
-                ? "text-rose-500 underline"
-                : darkMode
-                ? "text-gray-300"
-                : "text-black"
-            }
+            className="text-black hover:text-rose-500 transition duration-300"
           >
             All Volunteer Need Posts
           </NavLink>
+
           <div className="dropdown dropdown-bottom dropdown-right dropdown-hover">
-            <div tabIndex={0} role="button" className=" m-1">
+            <div
+              tabIndex={0}
+              role="button"
+              className="cursor-pointer text-black"
+            >
               My Profile
             </div>
             <ul
               tabIndex={0}
-              className={`dropdown-content dropdown-hover menu ${
-                darkMode ? "bg-gray-800 text-white" : "bg-base-100 text-black"
-              } rounded-box z-[1] w-64 p-4 shadow border flex items-center text-base gap-y-4`}
+              className="dropdown-content menu bg-base-100 text-black rounded-box z-[1] w-64 p-4 shadow border flex items-center text-base gap-y-4"
             >
               <Link
                 className="border px-2 py-1 rounded-xl text-blue-700 bg-blue-50 border-blue-200 w-full text-center"
@@ -88,9 +75,11 @@ const Navbar = () => {
               </Link>
             </ul>
           </div>
-          <DarkWhiteMode setDarkMode={setDarkMode} />
+
+          <DarkWhiteMode />
         </ul>
       </div>
+
       <div className="navbar-end">
         <div
           data-tooltip-id="my-tooltip"
@@ -100,7 +89,7 @@ const Navbar = () => {
           <div
             tabIndex={0}
             role="button"
-            className="m-1"
+            className="cursor-pointer"
             aria-label="User profile"
           >
             {user?.photoURL ? (
@@ -129,9 +118,7 @@ const Navbar = () => {
           />
           <ul
             tabIndex={0}
-            className={`dropdown-content dropdown-hover menu ${
-              darkMode ? "bg-gray-800 text-white" : "bg-base-100 text-black"
-            } rounded-box z-[1] w-28 p-2 shadow border flex items-center text-base gap-y-2 font-semibold`}
+            className="dropdown-content menu bg-base-100 text-black rounded-box z-[1] w-28 p-2 shadow border flex items-center text-base gap-y-2 font-semibold"
           >
             <Link
               className="border px-2 py-1 rounded-xl text-cyan-700 bg-cyan-50 border-cyan-200 w-full text-center"
@@ -145,15 +132,13 @@ const Navbar = () => {
             >
               Login
             </Link>
-            {user ? (
+            {user && (
               <button
-                className="border px-2 py-1 rounded-xl font-bold text-red-600 bg-red-100 border-read-200 mt-2 text-center w-full"
+                className="border px-2 py-1 rounded-xl font-bold text-red-600 bg-red-100 border-red-200 mt-2 w-full text-center"
                 onClick={handleSignOut}
               >
-                SignOut
+                Sign Out
               </button>
-            ) : (
-              ""
             )}
           </ul>
         </div>

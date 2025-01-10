@@ -1,26 +1,24 @@
 import { useState } from "react";
 import { MdDarkMode, MdLightMode } from "react-icons/md";
 
-const DarkWhiteMode = ({ setDarkMode }) => {
+const DarkWhiteMode = () => {
   const [toggleButton, setToggleButton] = useState(false);
 
   const toggleMode = () => {
     if (toggleButton) {
       // Light mode
       document.body.style.background = "#ffffff";
-      document.body.style.color = "#000000";
-      setDarkMode(false);
+      document.body.style.color = "#1c1c22";
     } else {
       // Dark mode
-      document.body.style.background = "#000000";
+      document.body.style.background = "#1c1c22";
       document.body.style.color = "#ffffff";
-      setDarkMode(true);
     }
     setToggleButton(!toggleButton);
   };
 
   const buttonStyles = {
-    color: toggleButton ? "#fff" : "#000",
+    color: "black",
     fontSize: "30px",
     fontWeight: "bolder",
   };

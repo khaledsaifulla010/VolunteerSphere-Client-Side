@@ -4,7 +4,7 @@ import banner3 from "../../assets/banner/banner3.jpg";
 
 const Banner = () => {
   return (
-    <div className="mt-12">
+    <div className="mt-20">
       <div className="carousel w-full border rounded-xl shadow-lg transition-transform duration-700 ease-in-out">
         <div id="slide1" className="carousel-item relative w-full">
           <img

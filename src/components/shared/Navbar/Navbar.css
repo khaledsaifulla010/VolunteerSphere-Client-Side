@@ -1,0 +1,25 @@
+.active {
+  background: linear-gradient(
+    90deg,
+    rgba(128, 0, 128, 1) 0%,
+    rgba(255, 20, 147, 1) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative; /* Required for the underline placement */
+}
+
+.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px; /* Position underline slightly below text */
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    rgba(128, 0, 128, 1) 0%,
+    rgba(255, 20, 147, 1) 100%
+  );
+  border-radius: 1px; /* Optional for rounded edges */
+}
