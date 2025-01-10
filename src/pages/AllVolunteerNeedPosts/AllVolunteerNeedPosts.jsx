@@ -66,7 +66,7 @@ const AllVolunteerNeedPosts = () => {
     <div className="mt-4 font-4 mb-24 py-36">
       <h1
         style={{ animationDuration: "4s" }}
-        className="text-5xl font-bold text-center mb-12 animate__animated animate__backInDown"
+        className="text-5xl font-bold text-center mb-12 animate__animated animate__bounceInLeft"
       >
         All Volunteer Need Posts
       </h1>

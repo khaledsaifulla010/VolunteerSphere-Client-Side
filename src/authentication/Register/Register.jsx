@@ -61,11 +61,11 @@ const Register = () => {
 
   return (
     <div className="font-3">
-      <div className="w-[1200px] ml-28 rounded-xl mt-12">
+      <div className="w-[1200px] ml-28 rounded-xl mt-12 py-24">
         <h1
           style={{ animationDuration: "4s" }}
-          className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-pink-600 -mb-4 p-8 ml-[500px] animate__animated
-         animate__backInDown"
+          className="text-5xl font-bold  -mb-4 p-8 ml-[500px] animate__animated
+         animate__bounceInLeft"
         >
           Please Register
         </h1>

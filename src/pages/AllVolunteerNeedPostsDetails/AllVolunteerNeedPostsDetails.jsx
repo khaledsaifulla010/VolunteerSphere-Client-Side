@@ -36,11 +36,11 @@ const AllVolunteerNeedPostsDetails = () => {
   };
 
   return (
-    <div className="mt-12 font-5">
+    <div className="mt-12 font-5 py-36">
       <h1
         style={{ animationDuration: "4s" }}
         className="text-5xl font-bold text-center mb-12 animate__animated
-         animate__backInDown"
+         animate__bounceInDown"
       >
         "{post_title}" Posts Details
       </h1>
@@ -50,7 +50,7 @@ const AllVolunteerNeedPostsDetails = () => {
             <img
               src={thumbnail_URL}
               alt="Post Thumbnail"
-              className="object-cover w-[40%] h-[700px] border-r"
+              className="object-cover w-[40%] h-[700px] border-r rounded-xl"
             />
             <div className="flex flex-col p-4 w-[60%]">
               <h2 className="text-4xl font-bold text-teal-800 bg-teal-50 border-teal-200 border p-2 rounded-xl w-full text-center ">

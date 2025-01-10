@@ -36,11 +36,11 @@ const AddVolunteerNeedPost = () => {
   };
 
   return (
-    <div className="font-3 mt-12 mb-24">
+    <div className="font-3 mt-12  py-36">
       <h1
         style={{ animationDuration: "4s" }}
         className="text-5xl font-bold text-center mb-12 animate__animated
-         animate__backInDown "
+         animate__bounceInDown "
       >
         Add Volunteer Need Post
       </h1>

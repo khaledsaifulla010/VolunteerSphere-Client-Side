@@ -6,11 +6,11 @@ import "animate.css/animate.css";
 import ManageMyVolunteerRequestPosts from "../../components/ManageMyVolunteerRequestPosts/ManageMyVolunteerRequestPosts";
 const ManageMyPosts = () => {
   return (
-    <div className="mt-12 mb-24 font-2">
+    <div className="mt-12 font-2 py-36">
       <h1
         style={{ animationDuration: "4s" }}
         className="text-5xl font-bold text-center mb-16 animate__animated
-         animate__backInDown "
+         animate__bounceInLeft "
       >
         Manage My Post
       </h1>

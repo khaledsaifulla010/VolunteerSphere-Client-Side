@@ -55,7 +55,7 @@ const ManageMyVolunteerNeedPosts = () => {
   return (
     <div className="mt-12">
       {volunteerPosts.length > 0 ? (
-        <div className="overflow-x-auto mt-20 mb-72 px-8">
+        <div className="overflow-x-auto mt-20 px-8">
           <div className="rounded-lg shadow-lg border border-gray-300">
             <table className="table w-full border-collapse">
               <thead className="bg-gray-700 text-white text-lg font-extrabold">

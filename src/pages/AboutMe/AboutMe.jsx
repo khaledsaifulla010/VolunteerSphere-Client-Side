@@ -4,7 +4,14 @@ import useAuth from "../../hooks/useAuth";
 const AboutMe = () => {
   const { user } = useAuth();
   return (
-    <div className="mb-36 mt-12">
+    <div className="mb-12 mt-12 py-36">
+      <h1
+        style={{ animationDuration: "4s" }}
+        className="text-5xl font-bold text-center mb-16 animate__animated
+         animate__bounceInLeft "
+      >
+        {`${user?.displayName}'s`} Profile
+      </h1>
       <div className="card border max-w-[900px] mx-auto rounded-xl shadow-lg bg-white">
         <div className="flex items-center ml-12 mt-8 gap-4">
           {user && user?.photoURL ? (
