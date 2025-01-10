@@ -1,8 +1,10 @@
-import { FaCalendarDays, FaLocationDot } from "react-icons/fa6";
+import { FaLocationDot } from "react-icons/fa6";
+import { GrUserWorker } from "react-icons/gr";
 import { Link } from "react-router-dom";
 
 const AllVolunteerNeedPostsCard = ({ volunteer, isTableLayout }) => {
-  const { _id, thumbnail_URL, post_title, location, deadline } = volunteer;
+  const { _id, thumbnail_URL, post_title, location, volunteersNeeded } =
+    volunteer;
 
   if (isTableLayout) {
     return (
@@ -24,8 +26,8 @@ const AllVolunteerNeedPostsCard = ({ volunteer, isTableLayout }) => {
         <td className="text-center py-3 px-4 text-sky-600 font-bold">
           {location}
         </td>
-        <td className="text-center py-3 px-4 text-rose-600 font-bold">
-          {deadline}
+        <td className="text-center py-3 px-4 text-green-600 font-bold">
+          {volunteersNeeded}
         </td>
         <td className="text-center py-3 px-4">
           <Link
@@ -58,10 +60,10 @@ const AllVolunteerNeedPostsCard = ({ volunteer, isTableLayout }) => {
         </p>
         <p className="text-base text-gray-500 flex items-center font-semibold">
           <strong className="flex items-center">
-            <FaCalendarDays className="mr-1" /> Deadline:{" "}
+            <GrUserWorker className="mr-1" /> Volunteers Needed :{" "}
           </strong>
-          <span className="text-rose-600 font-bold ml-1 mt-0.5">
-            {deadline}
+          <span className="text-green-600 font-bold ml-1 mt-0.5">
+            {volunteersNeeded}
           </span>
         </p>
         <Link

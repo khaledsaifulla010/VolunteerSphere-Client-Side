@@ -5,11 +5,13 @@ import { IoGrid } from "react-icons/io5";
 import { RiTableView } from "react-icons/ri";
 import { BsFillSearchHeartFill } from "react-icons/bs";
 import "animate.css/animate.css";
+
 const AllVolunteerNeedPosts = () => {
   const [allVolunteers, setAllVolunteers] = useState([]);
   const [filteredVolunteers, setFilteredVolunteers] = useState([]);
   const [isTableLayout, setIsTableLayout] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [sortOption, setSortOption] = useState("default"); // New state for sorting option
 
   useEffect(() => {
     axios
@@ -35,20 +37,40 @@ const AllVolunteerNeedPosts = () => {
     }
   };
 
+  // Sort by volunteersNeeded function
+  const handleSortByVolunteersNeeded = () => {
+    const sortedPosts = [...filteredVolunteers].sort((a, b) => {
+      return b.volunteersNeeded - a.volunteersNeeded;
+    });
+    setFilteredVolunteers(sortedPosts);
+  };
+
+  // Handle sort option change
+  const handleSortOptionChange = (event) => {
+    const value = event.target.value;
+    setSortOption(value);
+
+    if (value === "volunteersNeeded") {
+      handleSortByVolunteersNeeded();
+    } else {
+      // Default sorting (reset to original order)
+      setFilteredVolunteers(allVolunteers);
+    }
+  };
+
   const handleLayoutToggle = (layout) => {
     setIsTableLayout(layout);
   };
 
   return (
-    <div className="mt-4 font-4 py-36">
+    <div className="mt-4 font-4 mb-24 py-36">
       <h1
         style={{ animationDuration: "4s" }}
-        className="text-5xl font-bold text-center mb-12 animate__animated
-         animate__bounceInLeft"
+        className="text-5xl font-bold text-center mb-12 animate__animated animate__backInDown"
       >
         All Volunteer Need Posts
       </h1>
-      <div className="text-center mb-2 flex items-center justify-end gap-4 mt-24">
+      <div className="text-center mb-2 flex items-center justify-end gap-4">
         <div className="mr-16 relative">
           <input
             className="border rounded-l-lg w-[500px] h-14 p-2 font-bold"
@@ -85,6 +107,17 @@ const AllVolunteerNeedPosts = () => {
             <RiTableView />
           </button>
         </div>
+        {/* Sort select dropdown */}
+        <div className="tooltip font-bold" data-tip="Sort Options">
+          <select
+            value={sortOption}
+            onChange={handleSortOptionChange}
+            className="px-4 py-2 text-center border border-blue-500 rounded-lg mx-2 outline-none font-bold text-green-500"
+          >
+            <option value="default">Sort by Default</option>
+            <option value="volunteersNeeded">Sort by Volunteers Needed</option>
+          </select>
+        </div>
       </div>
       <div className="divider"></div>
       {filteredVolunteers.length === 0 ? (
@@ -100,7 +133,7 @@ const AllVolunteerNeedPosts = () => {
                   <th className="text-center py-3 px-4">Thumbnail</th>
                   <th className="text-center py-3 px-4">Post Title</th>
                   <th className="text-center py-3 px-4">Location</th>
-                  <th className="text-center py-3 px-4">Deadline</th>
+                  <th className="text-center py-3 px-4">Volunteers Needed</th>
                   <th className="text-center py-3 px-4">View Details</th>
                 </tr>
               </thead>
@@ -118,7 +151,7 @@ const AllVolunteerNeedPosts = () => {
           </div>
         </div>
       ) : (
-        <div className="grid grid-cols-3 mt-16 gap-y-12 gap-x-8">
+        <div className="grid grid-cols-3 mt-16 gap-y-12 gap-x-8 mb-12">
           {filteredVolunteers.map((volunteer) => (
             <AllVolunteerNeedPostsCard
               key={volunteer._id}
