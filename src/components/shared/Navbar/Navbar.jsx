@@ -24,7 +24,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar bg-base-100 font-2 rounded-xl px-8 shadow-md hover:shadow-[0px_10px_30px_rgba(0,0,0,0.3)] transition-shadow duration-1000 ease-in-out fixed left-0 right-0 z-10 top-0  py-4">
+    <div className="navbar bg-base-100 font-2 rounded-xl px-8 shadow-md hover:shadow-[0px_10px_30px_rgba(0,0,0,0.3)] transition-shadow duration-1000 ease-in-out fixed left-0 right-0 z-10 top-0  py-4 ">
       <div className="navbar-start">
         <Link to={"/"} className="flex items-center">
           <img className="w-12" src={logo} alt="Logo" />
@@ -117,25 +117,29 @@ const Navbar = () => {
             tabIndex={0}
             className="dropdown-content menu bg-base-100 text-black rounded-box z-[1] w-28 p-2 shadow border flex items-center text-base gap-y-2 font-semibold"
           >
-            <Link
-              className="border px-2 py-1 rounded-xl text-cyan-700 bg-cyan-50 border-cyan-200 w-full text-center"
-              to={"/aboutMe"}
-            >
-              About Me
-            </Link>
-            <Link
-              className="border px-2 py-1 rounded-xl text-blue-700 bg-blue-50 border-blue-200 w-full text-center"
-              to={"/login"}
-            >
-              Login
-            </Link>
             {user && (
+              <Link
+                className="border px-2 py-1 rounded-xl text-cyan-700 bg-cyan-50 border-cyan-200 w-full text-center"
+                to={"/aboutMe"}
+              >
+                About Me
+              </Link>
+            )}
+
+            {user ? (
               <button
                 className="border px-2 py-1 rounded-xl font-bold text-red-600 bg-red-100 border-red-200 mt-2 w-full text-center"
                 onClick={handleSignOut}
               >
                 Sign Out
               </button>
+            ) : (
+              <Link
+                className="border px-2 py-1 rounded-xl text-blue-700 bg-blue-50 border-blue-200 w-full text-center"
+                to="/login"
+              >
+                Login
+              </Link>
             )}
           </ul>
         </div>
