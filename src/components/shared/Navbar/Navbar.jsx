@@ -35,16 +35,13 @@ const Navbar = () => {
       </div>
 
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 flex items-center gap-16 font-semibold text-base">
-          <NavLink
-            to={"/"}
-            className="text-black hover:text-rose-500  transition duration-300"
-          >
+        <ul className="menu menu-horizontal px-1 flex items-center gap-8 font-semibold text-base">
+          <NavLink to={"/"} className=" text-rose-600  transition duration-300">
             Home
           </NavLink>
           <NavLink
             to={"/allVolunteerNeedPosts"}
-            className="text-black hover:text-rose-500 transition duration-300"
+            className=" text-rose-600 transition duration-300"
           >
             All Volunteer Need Posts
           </NavLink>
@@ -53,7 +50,7 @@ const Navbar = () => {
             <div
               tabIndex={0}
               role="button"
-              className="cursor-pointer text-black"
+              className="cursor-pointer text-rose-600"
             >
               My Profile
             </div>

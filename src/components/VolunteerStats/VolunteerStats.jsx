@@ -13,7 +13,7 @@ const VolunteerStats = () => {
       onEnter={() => setCounterState(true)}
       onExit={() => setCounterState(false)}
     >
-      <div className="bg-orange-700 text-white py-8 px-4 flex flex-col md:flex-row justify-around items-center rounded-lg mt-16 font-1">
+      <div className="bg-green-600 opacity-90 text-white py-8 px-4 flex flex-col md:flex-row justify-around items-center rounded-lg mt-24 font-1">
         {/* Card 1 */}
         <div className="text-center flex-1 mb-6 md:mb-0">
           <div className="text-4xl mb-2 ml-[150px] text-yellow-300">

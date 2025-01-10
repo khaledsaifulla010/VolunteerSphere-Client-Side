@@ -18,7 +18,7 @@ const VolunteerNeedsNow = () => {
       <h1
         style={{ animationDuration: "4s" }}
         className="text-5xl font-bold text-center mb-12 animate__animated
-         animate__backInDown"
+         animate__bounceInLeft"
       >
         Volunteer Needs Now
       </h1>

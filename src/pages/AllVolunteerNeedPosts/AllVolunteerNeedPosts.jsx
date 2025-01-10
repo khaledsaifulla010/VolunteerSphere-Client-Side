@@ -40,15 +40,15 @@ const AllVolunteerNeedPosts = () => {
   };
 
   return (
-    <div className="mt-4 font-4 mb-24">
+    <div className="mt-4 font-4 py-36">
       <h1
         style={{ animationDuration: "4s" }}
         className="text-5xl font-bold text-center mb-12 animate__animated
-         animate__backInDown"
+         animate__bounceInLeft"
       >
         All Volunteer Need Posts
       </h1>
-      <div className="text-center mb-2 flex items-center justify-end gap-4">
+      <div className="text-center mb-2 flex items-center justify-end gap-4 mt-24">
         <div className="mr-16 relative">
           <input
             className="border rounded-l-lg w-[500px] h-14 p-2 font-bold"
@@ -100,6 +100,7 @@ const AllVolunteerNeedPosts = () => {
                   <th className="text-center py-3 px-4">Thumbnail</th>
                   <th className="text-center py-3 px-4">Post Title</th>
                   <th className="text-center py-3 px-4">Location</th>
+                  <th className="text-center py-3 px-4">Deadline</th>
                   <th className="text-center py-3 px-4">View Details</th>
                 </tr>
               </thead>
@@ -117,7 +118,7 @@ const AllVolunteerNeedPosts = () => {
           </div>
         </div>
       ) : (
-        <div className="grid grid-cols-3 mt-16 gap-y-12 gap-x-8 mb-12">
+        <div className="grid grid-cols-3 mt-16 gap-y-12 gap-x-8">
           {filteredVolunteers.map((volunteer) => (
             <AllVolunteerNeedPostsCard
               key={volunteer._id}

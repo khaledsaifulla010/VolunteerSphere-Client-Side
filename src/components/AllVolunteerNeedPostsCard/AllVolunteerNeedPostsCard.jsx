@@ -1,7 +1,8 @@
+import { FaCalendarDays, FaLocationDot } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
 const AllVolunteerNeedPostsCard = ({ volunteer, isTableLayout }) => {
-  const { _id, thumbnail_URL, post_title, location } = volunteer;
+  const { _id, thumbnail_URL, post_title, location, deadline } = volunteer;
 
   if (isTableLayout) {
     return (
@@ -20,8 +21,11 @@ const AllVolunteerNeedPostsCard = ({ volunteer, isTableLayout }) => {
         <td className="text-center py-3 px-4 text-base text-purple-700 font-bold">
           {post_title}
         </td>
-        <td className="text-center py-3 px-4 text-indigo-600 font-bold">
+        <td className="text-center py-3 px-4 text-sky-600 font-bold">
           {location}
+        </td>
+        <td className="text-center py-3 px-4 text-rose-600 font-bold">
+          {deadline}
         </td>
         <td className="text-center py-3 px-4">
           <Link
@@ -47,8 +51,18 @@ const AllVolunteerNeedPostsCard = ({ volunteer, isTableLayout }) => {
       <div className="card-body w-[65%]">
         <h2 className="text-2xl font-bold">{post_title}</h2>
         <p className="text-base text-gray-500 flex items-center font-semibold">
-          <strong className="flex items-center">Location: </strong>
-          <span className="text-purple-600 font-bold ml-1">{location}</span>
+          <strong className="flex items-center ">
+            <FaLocationDot className="mr-1" /> Location:{" "}
+          </strong>
+          <span className="font-bold ml-1 text-sky-600 mt-0.5">{location}</span>
+        </p>
+        <p className="text-base text-gray-500 flex items-center font-semibold">
+          <strong className="flex items-center">
+            <FaCalendarDays className="mr-1" /> Deadline:{" "}
+          </strong>
+          <span className="text-rose-600 font-bold ml-1 mt-0.5">
+            {deadline}
+          </span>
         </p>
         <Link
           to={`/allVolunteerNeedsPosts/${_id}`}
