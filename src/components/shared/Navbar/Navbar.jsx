@@ -35,7 +35,7 @@ const Navbar = () => {
       </div>
 
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 flex items-center gap-8 font-semibold text-base">
+        <ul className="menu menu-horizontal px-1 flex items-center ml-24 gap-8 font-semibold text-base">
           <NavLink to={"/"} className=" text-rose-600  transition duration-300">
             Home
           </NavLink>
@@ -45,40 +45,34 @@ const Navbar = () => {
           >
             All Volunteer Need Posts
           </NavLink>
-
           {user && (
-            <div className="dropdown dropdown-bottom dropdown-right dropdown-hover">
-              <div
-                tabIndex={0}
-                role="button"
-                className="cursor-pointer text-rose-600"
-              >
-                My Profile
-              </div>
-              <ul
-                tabIndex={0}
-                className="dropdown-content menu bg-base-100 text-black rounded-box z-[1] w-64 p-4 shadow border flex items-center text-base gap-y-4"
-              >
-                <Link
-                  className="border px-2 py-1 rounded-xl text-blue-700 bg-blue-50 border-blue-200 w-full text-center"
-                  to={"/addVolunteerNeedPost"}
-                >
-                  Add Volunteer Need Post
-                </Link>
-                <Link
-                  className="border px-2 py-1 rounded-xl text-cyan-700 bg-cyan-50 border-cyan-200 w-full text-center"
-                  to={"/manageMyPosts"}
-                >
-                  Manage My Posts
-                </Link>
-              </ul>
-            </div>
+            <NavLink
+              className="text-rose-600  transition duration-300"
+              to={"/addVolunteerNeedPost"}
+            >
+              Add Volunteer Need Post
+            </NavLink>
           )}
 
-          <NavLink to={"/contactUs"} className=" text-rose-600  transition duration-300">
+          {user && (
+            <NavLink
+              className="text-rose-600  transition duration-300"
+              to={"/manageMyPosts"}
+            >
+              Manage My Posts
+            </NavLink>
+          )}
+
+          <NavLink
+            to={"/contactUs"}
+            className=" text-rose-600  transition duration-300"
+          >
             Contact Us
           </NavLink>
-          <NavLink to={"/faq"} className=" text-rose-600  transition duration-300">
+          <NavLink
+            to={"/faq"}
+            className=" text-rose-600  transition duration-300"
+          >
             FAQ
           </NavLink>
 
@@ -86,7 +80,7 @@ const Navbar = () => {
         </ul>
       </div>
 
-      <div className="navbar-end">
+      <div className="navbar-end ml">
         <div
           data-tooltip-id="my-tooltip"
           data-tooltip-content={user?.displayName || "Guest User"}
