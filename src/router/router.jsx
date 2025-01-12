@@ -13,6 +13,7 @@ import ErrorPage from "../ErrorPage/ErrorPage";
 import VolunteerNeedsNowDeatils from "../pages/VolunteerNeedsNowDeatils/VolunteerNeedsNowDeatils";
 import PrivateRoute from "./PrivateRoute";
 import AboutMe from "../pages/AboutMe/AboutMe";
+import ContactUs from "../pages/ContactUs/ContactUs";
 
 const router = createBrowserRouter([
   {
@@ -96,6 +97,10 @@ const router = createBrowserRouter([
             <AboutMe></AboutMe>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/contactUs",
+        element: <ContactUs></ContactUs>,
       },
     ],
   },
