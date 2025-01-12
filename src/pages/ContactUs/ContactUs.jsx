@@ -1,6 +1,6 @@
 const ContactUs = () => {
   return (
-    <div className="mb-24 mt-12 py-24">
+    <div className=" mt-12 py-36">
       <h1
         style={{ animationDuration: "3s" }}
         className="mt-4 text-center text-5xl font-bold  animate__animated animate__ animate__bounceInLeft"
