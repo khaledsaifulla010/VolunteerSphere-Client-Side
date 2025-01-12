@@ -78,6 +78,9 @@ const Navbar = () => {
           <NavLink to={"/contactUs"} className=" text-rose-600  transition duration-300">
             Contact Us
           </NavLink>
+          <NavLink to={"/faq"} className=" text-rose-600  transition duration-300">
+            FAQ
+          </NavLink>
 
           <DarkWhiteMode />
         </ul>

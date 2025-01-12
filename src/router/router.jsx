@@ -14,6 +14,7 @@ import VolunteerNeedsNowDeatils from "../pages/VolunteerNeedsNowDeatils/Voluntee
 import PrivateRoute from "./PrivateRoute";
 import AboutMe from "../pages/AboutMe/AboutMe";
 import ContactUs from "../pages/ContactUs/ContactUs";
+import FAQ from "../pages/FAQ/FAQ";
 
 const router = createBrowserRouter([
   {
@@ -101,6 +102,10 @@ const router = createBrowserRouter([
       {
         path: "/contactUs",
         element: <ContactUs></ContactUs>,
+      },
+      {
+        path: "/faq",
+        element: <FAQ></FAQ>,
       },
     ],
   },
