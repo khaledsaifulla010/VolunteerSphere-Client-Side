@@ -5,6 +5,7 @@ import { useContext, useState, useEffect } from "react";
 import AuthContext from "../context/AuthContext/AuthContext";
 import preloaderLottie from "../assets/lottie/preloaderLottie.json";
 import Lottie from "lottie-react";
+
 const MainLayout = () => {
   const { loadings } = useContext(AuthContext);
   const location = useLocation();
@@ -21,8 +22,7 @@ const MainLayout = () => {
 
   if (loadings) {
     return (
-      <div className="flex justify-center items-center h-screen">
-        <div className="spinner"></div>
+      <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex justify-center items-center z-50">
         <Lottie className="w-[300px]" animationData={preloaderLottie}></Lottie>
       </div>
     );
@@ -32,7 +32,7 @@ const MainLayout = () => {
     <div className="max-w-[1450px] mx-auto">
       {/* Preloader */}
       {isLoading && (
-        <div className="flex justify-center items-center h-screen">
+        <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex justify-center items-center z-50">
           <Lottie
             className="w-[300px]"
             animationData={preloaderLottie}
