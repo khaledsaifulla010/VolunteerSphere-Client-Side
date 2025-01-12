@@ -14,7 +14,7 @@ const VolunteerNeedsNow = () => {
   }, []);
 
   return (
-    <div className="mt-24 font-1">
+    <div className=" font-1">
       <h1
         style={{ animationDuration: "4s" }}
         className="text-5xl font-bold text-center mb-12 animate__animated

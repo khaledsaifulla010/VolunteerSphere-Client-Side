@@ -16,7 +16,7 @@ const Banner = () => {
   };
 
   return (
-    <div className="mt-24">
+    <div className="py-28">
       <div className="carousel w-full border rounded-xl shadow-lg ">
         {banners.map((banner, index) => (
           <div
@@ -26,7 +26,7 @@ const Banner = () => {
             }`}
           >
             {/* Overlay */}
-            <div className="absolute inset-0 bg-black bg-opacity-20 z-10"></div>
+            <div className="absolute inset-0 bg-black bg-opacity-20 "></div>
 
             {/* Image */}
             <img
@@ -37,7 +37,7 @@ const Banner = () => {
 
             {/* Text */}
             {index === 0 && (
-              <h2 className="absolute top-44 px-12 text-7xl font-bold text-white text-center z-20">
+              <h2 className="absolute top-44 px-12 text-7xl font-bold text-white text-center ">
                 Volunteer today to make a difference, create lasting change, and
                 positively impact lives forever.
               </h2>
