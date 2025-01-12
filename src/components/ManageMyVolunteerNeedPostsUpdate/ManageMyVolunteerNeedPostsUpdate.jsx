@@ -50,7 +50,7 @@ const ManageMyVolunteerNeedPostsUpdate = () => {
   today.setHours(0, 0, 0, 0);
 
   return (
-    <div className="mt-12 mb-24 font-3">
+    <div className="mt-12 py-36 font-3">
       <Helmet>
         <title>VolunteerSphere || Update Posts Details</title>
       </Helmet>

@@ -64,7 +64,7 @@ const AllVolunteerNeedPosts = () => {
   };
 
   return (
-    <div className="mt-4 font-4 mb-24 py-36">
+    <div className="mt-4 font-4 py-36">
       <Helmet>
         <title>VolunteerSphere || All Volunteer Need Posts</title>
       </Helmet>

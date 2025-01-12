@@ -99,15 +99,14 @@ const AllVolunteerNeedPostsDetails = () => {
                    w-full flex items-center justify-center
                 font-semibold"
                 >
-                  <FaBuilding className="mr-1" /> Organizer Name :{" "}
-                  {organizerName}
+                  <FaBuilding className="mr-1" /> Name : {organizerName}
                 </p>
                 <p
                   className="text-blue-600 bg-blue-50 border-blue-200 border p-2 rounded-xl
                    w-full flex items-center justify-center
                 font-semibold"
                 >
-                  <MdAttachEmail className="mr-1 mt-0.5" /> Organizer Email :{" "}
+                  <MdAttachEmail className="mr-1 mt-0.5" /> Email :{" "}
                   {organizerEmail}
                 </p>
               </div>
