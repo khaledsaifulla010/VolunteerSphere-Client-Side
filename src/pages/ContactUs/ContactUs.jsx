@@ -1,6 +1,11 @@
+import { Helmet } from "react-helmet-async";
+
 const ContactUs = () => {
   return (
     <div className=" mt-12 py-36">
+      <Helmet>
+        <title>VolunteerSphere || Contact Us</title>
+      </Helmet>
       <h1
         style={{ animationDuration: "3s" }}
         className="mt-4 text-center text-5xl font-bold  animate__animated animate__ animate__bounceInLeft"

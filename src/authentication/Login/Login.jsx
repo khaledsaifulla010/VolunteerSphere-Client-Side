@@ -9,6 +9,7 @@ import AuthContext from "../../context/AuthContext/AuthContext";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "animate.css/animate.css";
+import { Helmet } from "react-helmet-async";
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
 
@@ -59,6 +60,9 @@ const Login = () => {
 
   return (
     <div className="font-3 py-24">
+      <Helmet>
+        <title>VolunteerSphere || Login</title>
+      </Helmet>
       <div className="w-[1200px] ml-16 rounded-xl mt-12">
         <h1
           style={{ animationDuration: "4s" }}

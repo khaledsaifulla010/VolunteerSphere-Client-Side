@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import useAuth from "../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 const AddVolunteerNeedPost = () => {
   const [deadline, setDeadline] = useState(new Date());
   const { user } = useAuth();
@@ -37,6 +38,9 @@ const AddVolunteerNeedPost = () => {
 
   return (
     <div className="font-3 mt-12  py-36">
+      <Helmet>
+        <title>VolunteerSphere || Add Volunteer Need Posts</title>
+      </Helmet>
       <h1
         style={{ animationDuration: "4s" }}
         className="text-5xl font-bold text-center mb-12 animate__animated

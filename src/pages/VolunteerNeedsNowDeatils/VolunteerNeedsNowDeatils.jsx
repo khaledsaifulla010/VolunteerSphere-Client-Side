@@ -5,6 +5,7 @@ import { HiDocumentCheck } from "react-icons/hi2";
 import { IoLocation } from "react-icons/io5";
 import { useLoaderData } from "react-router-dom";
 import "animate.css/animate.css";
+import { Helmet } from "react-helmet-async";
 const VolunteerNeedsNowDeatils = () => {
   const volunteerPostDetails = useLoaderData();
   const {
@@ -20,6 +21,9 @@ const VolunteerNeedsNowDeatils = () => {
 
   return (
     <div className=" mt-12 font-5 py-24">
+      <Helmet>
+        <title>VolunteerSphere || Posts Details</title>
+      </Helmet>
       <h1
         style={{ animationDuration: "4s" }}
         className="text-5xl font-bold text-center mb-12 animate__animated

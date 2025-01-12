@@ -5,6 +5,7 @@ import { IoGrid } from "react-icons/io5";
 import { RiTableView } from "react-icons/ri";
 import { BsFillSearchHeartFill } from "react-icons/bs";
 import "animate.css/animate.css";
+import { Helmet } from "react-helmet-async";
 
 const AllVolunteerNeedPosts = () => {
   const [allVolunteers, setAllVolunteers] = useState([]);
@@ -64,6 +65,9 @@ const AllVolunteerNeedPosts = () => {
 
   return (
     <div className="mt-4 font-4 mb-24 py-36">
+      <Helmet>
+        <title>VolunteerSphere || All Volunteer Need Posts</title>
+      </Helmet>
       <h1
         style={{ animationDuration: "4s" }}
         className="text-5xl font-bold text-center mb-12 animate__animated animate__bounceInLeft"

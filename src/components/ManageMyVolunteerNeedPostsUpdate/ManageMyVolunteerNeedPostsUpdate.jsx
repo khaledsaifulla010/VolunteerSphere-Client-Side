@@ -6,6 +6,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "animate.css/animate.css";
+import { Helmet } from "react-helmet-async";
 const ManageMyVolunteerNeedPostsUpdate = () => {
   const updateVolunteerNeedPost = useLoaderData();
   const {
@@ -50,10 +51,13 @@ const ManageMyVolunteerNeedPostsUpdate = () => {
 
   return (
     <div className="mt-12 mb-24 font-3">
+      <Helmet>
+        <title>VolunteerSphere || Update Posts Details</title>
+      </Helmet>
       <h1
         style={{ animationDuration: "4s" }}
         className="text-5xl font-bold text-center mb-16 animate__animated
-         animate__backInDown"
+         animate__bounceInLeft"
       >
         Update My Volunteer Need Post
       </h1>

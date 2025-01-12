@@ -10,6 +10,7 @@ import { FaCertificate } from "react-icons/fa";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "animate.css/animate.css";
+import { Helmet } from "react-helmet-async";
 const AllVolunteerNeedPostsDetails = () => {
   const postsDetails = useLoaderData();
 
@@ -37,6 +38,9 @@ const AllVolunteerNeedPostsDetails = () => {
 
   return (
     <div className="mt-12 font-5 py-36">
+      <Helmet>
+        <title>VolunteerSphere || Posts Details</title>
+      </Helmet>
       <h1
         style={{ animationDuration: "4s" }}
         className="text-5xl font-bold text-center mb-12 animate__animated

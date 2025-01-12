@@ -8,6 +8,7 @@ import { updateProfile } from "firebase/auth";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "animate.css/animate.css";
+import { Helmet } from "react-helmet-async";
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
   const { registerUser } = useContext(AuthContext);
@@ -61,6 +62,9 @@ const Register = () => {
 
   return (
     <div className="font-3">
+      <Helmet>
+              <title>VolunteerSphere || Register</title>
+            </Helmet>
       <div className="w-[1200px] ml-28 rounded-xl mt-12 py-24">
         <h1
           style={{ animationDuration: "4s" }}

@@ -1,10 +1,14 @@
 import { FaUserCircle } from "react-icons/fa";
 import useAuth from "../../hooks/useAuth";
+import { Helmet } from "react-helmet-async";
 
 const AboutMe = () => {
   const { user } = useAuth();
   return (
     <div className="mb-12 mt-12 py-36">
+      <Helmet>
+        <title>VolunteerSphere || About Me</title>
+      </Helmet>
       <h1
         style={{ animationDuration: "4s" }}
         className="text-5xl font-bold text-center mb-16 animate__animated

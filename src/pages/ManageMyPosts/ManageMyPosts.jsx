@@ -4,15 +4,19 @@ import "react-tabs/style/react-tabs.css";
 import "./CustomTabsStyle.css";
 import "animate.css/animate.css";
 import ManageMyVolunteerRequestPosts from "../../components/ManageMyVolunteerRequestPosts/ManageMyVolunteerRequestPosts";
+import { Helmet } from "react-helmet-async";
 const ManageMyPosts = () => {
   return (
     <div className="mt-12 font-2 py-36">
+      <Helmet>
+        <title>VolunteerSphere || Manage My Posts</title>
+      </Helmet>
       <h1
         style={{ animationDuration: "4s" }}
         className="text-5xl font-bold text-center mb-16 animate__animated
          animate__bounceInLeft "
       >
-        Manage My Post
+        Manage My Posts
       </h1>
       <Tabs>
         <div className="border p-4 bg-purple-100 rounded-xl">
